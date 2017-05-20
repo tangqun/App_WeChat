@@ -12,6 +12,7 @@ namespace Helper_9H
 
         public static string ComponentAppId = GetConfig("ComponentAppId");
         public static string DomainToken = GetConfig("DomainToken");
+        public static string UniversalHost = GetConfig("UniversalHost");
 
         public static string GetConfig(string key)
         {

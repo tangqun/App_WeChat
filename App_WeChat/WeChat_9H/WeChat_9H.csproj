@@ -96,6 +96,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EntityShopController.cs" />
+    <Compile Include="Controllers\MemberCardController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -104,6 +105,10 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Log4Net.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\EntityShop\List.cshtml" />
+    <None Include="Properties\PublishProfiles\wechat.smartyancheng.com.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -114,8 +119,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Base\" />
-    <Folder Include="Views\EntityShop\" />
+    <Folder Include="Views\MemberCard\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL_9H\BLL_9H.csproj">
@@ -125,6 +129,10 @@
     <ProjectReference Include="..\IBLL_9H\IBLL_9H.csproj">
       <Project>{45f23ead-17fc-45a1-97ac-61c54d89aff4}</Project>
       <Name>IBLL_9H</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model_9H\Model_9H.csproj">
+      <Project>{4e21aa5d-633a-430d-8549-6ca12df59985}</Project>
+      <Name>Model_9H</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

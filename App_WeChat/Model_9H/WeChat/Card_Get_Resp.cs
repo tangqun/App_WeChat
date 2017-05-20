@@ -9,6 +9,6 @@ namespace Model_9H
     {
         public int ErrCode { get; set; }
         public string ErrMsg { get; set; }
-        public Card_Info Card { get; set; }
+        public Card Card { get; set; }
     }
 }

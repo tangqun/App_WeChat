@@ -9,12 +9,19 @@ namespace WeChat_9H.Controllers
 {
     public class BaseController : Controller
     {
+        public string AppId = "wxae43212cd9f3ed6e";
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             string host = filterContext.HttpContext.Request.Url.Host;
-            Regex regex = new Regex("[0-9]{1,6}\\.wechat.smartyancheng.com", RegexOptions.IgnoreCase);
+            Regex regex = new Regex("([0-9]{1,6})\\.wechat\\.smartyc\\.com", RegexOptions.IgnoreCase);
 
-            base.OnActionExecuting(filterContext);
+            if (regex.IsMatch(host))
+            {
+                // 根据编号查询真实AppId
+
+                base.OnActionExecuting(filterContext);
+            }
         }
     }
 }

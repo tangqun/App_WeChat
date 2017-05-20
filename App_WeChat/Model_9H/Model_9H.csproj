@@ -46,8 +46,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTful.cs" />
+    <Compile Include="WeChat\Card.cs" />
+    <Compile Include="WeChat\Member_Card.cs" />
+    <Compile Include="WeChat\Card_Get_Req.cs" />
+    <Compile Include="WeChat\Card_Get_Resp.cs" />
     <Compile Include="WeChat\EntityShop.cs" />
     <Compile Include="WeChat\EntityShop_Info.cs" />
+    <Compile Include="WeChat\Member_Card_Info.cs" />
     <Compile Include="WeChat\Photo_Info.cs" />
     <Compile Include="WeChat\Poi_GetList_Req.cs" />
     <Compile Include="WeChat\Poi_GetList_Resp.cs" />
