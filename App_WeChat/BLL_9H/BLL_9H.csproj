@@ -47,6 +47,7 @@
     <Compile Include="CardBLL.cs" />
     <Compile Include="EntityShopBLL.cs" />
     <Compile Include="MemberBLL.cs" />
+    <Compile Include="MsgBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
