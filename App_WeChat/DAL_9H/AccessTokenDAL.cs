@@ -19,9 +19,9 @@ namespace DAL_9H
 
             string resp_access_token = HttpHelper.Get(url_access_token);
 
-            RESTful rat = JsonConvert.DeserializeObject<RESTful>(resp_access_token);
+            RESTfulModel r = JsonConvert.DeserializeObject<RESTfulModel>(resp_access_token);
 
-            return rat.Data.ToString();
+            return r.Data.ToString();
         }
     }
 }

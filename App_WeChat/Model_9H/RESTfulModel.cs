@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Model_9H
 {
-    public class RESTful
+    public class RESTfulModel
     {
         [JsonProperty("code")]
         public int Code { get; set; }

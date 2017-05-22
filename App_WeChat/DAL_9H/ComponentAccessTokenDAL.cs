@@ -20,9 +20,9 @@ namespace DAL_9H
             // token 中控器
             string resp_component_access_token = HttpHelper.Get(url_component_access_token);
 
-            RESTful rcat = JsonConvert.DeserializeObject<RESTful>(resp_component_access_token);
+            RESTfulModel r = JsonConvert.DeserializeObject<RESTfulModel>(resp_component_access_token);
 
-            return rcat.Data.ToString();
+            return r.Data.ToString();
         }
     }
 }
