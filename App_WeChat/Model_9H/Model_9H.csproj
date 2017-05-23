@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Poi_Add_Req.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTfulModel.cs" />
     <Compile Include="WeChat\Card.cs" />
