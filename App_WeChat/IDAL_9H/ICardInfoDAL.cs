@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IBLL_9H
+namespace IDAL_9H
 {
-    public interface IMemberBLL
+    public interface ICardInfoDAL
     {
-        object GetModel();
+        int Insert(string authorizerAppID, string cardID, DateTime createTime);
     }
 }

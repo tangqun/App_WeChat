@@ -9,7 +9,7 @@ namespace WeChat_9H.Controllers
 {
     public class BaseController : Controller
     {
-        public string AppId = "wxae43212cd9f3ed6e";
+        public string AppID = "wxae43212cd9f3ed6e";
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -18,7 +18,8 @@ namespace WeChat_9H.Controllers
 
             if (regex.IsMatch(host))
             {
-                // 根据编号查询真实AppId
+                // 根据编号查询真实AppID
+                string replacedAppID = regex.Match(host).Groups[1].Value;
 
                 base.OnActionExecuting(filterContext);
             }

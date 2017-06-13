@@ -10,8 +10,8 @@ namespace Helper_9H
     {
         public static string ConnStr = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
-        public static string Component_AppId = GetConfig("Component_AppId");
-        public static string Domain_Token = GetConfig("Domain_Token");
+        public static string ComponentAppID = GetConfig("ComponentAppID");
+        public static string DomainToken = GetConfig("DomainToken");
         public static string UniversalHost = GetConfig("UniversalHost");
 
         public static string GetConfig(string key)

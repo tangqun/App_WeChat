@@ -13,16 +13,17 @@ namespace DAL_9H
     {
         public string Get()
         {
-            string url_component_access_token = ConfigHelper.Domain_Token + "api/component_access_token/get";
+            string url = ConfigHelper.DomainToken + "api/component_access_token/get";
 
-            LogHelper.Info("url_component_access_token: " + url_component_access_token);
+            LogHelper.Info("获取component_access_token，url: " + url);
+            
+            string responseBody = HttpHelper.Get(url);
 
-            // token 中控器
-            string resp_component_access_token = HttpHelper.Get(url_component_access_token);
+            LogHelper.Info("获取component_access_token，responseBody: " + responseBody);
 
-            RESTfulModel r = JsonConvert.DeserializeObject<RESTfulModel>(resp_component_access_token);
+            RESTfulModel resp = JsonConvert.DeserializeObject<RESTfulModel>(responseBody);
 
-            return r.Data.ToString();
+            return resp.Data.ToString();
         }
     }
 }

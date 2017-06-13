@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IBLL_9H
+namespace IDAL_9H
 {
-    public interface ICardBLL
+    public interface ICodeMsgDAL
     {
-        //Member_Card GetModel(string appid);
+        string GetByCode(int code);
     }
 }

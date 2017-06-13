@@ -14,12 +14,12 @@ namespace WeChat_9H.Controllers
 
         public ActionResult List()
         {
-            return View(entityShopBLL.GetList(AppId));
+            return View(entityShopBLL.GetList(AppID));
         }
 
         public ActionResult Details(string id)
         {
-            return View(entityShopBLL.GetModel(AppId, id));
+            return View(entityShopBLL.GetModel(AppID, id));
         }
     }
 }
