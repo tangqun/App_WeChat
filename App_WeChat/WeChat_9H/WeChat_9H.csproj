@@ -95,9 +95,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CouponController.cs" />
     <Compile Include="Controllers\EntityShopController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberCardController.cs" />
+    <Compile Include="Controllers\MembershipController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -110,6 +112,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\EntityShop\List.cshtml" />
     <None Include="Properties\PublishProfiles\wechat.smartyancheng.com.pubxml" />
+    <Content Include="Views\EntityShop\Details.cshtml" />
+    <Content Include="Views\MemberCard\Index.cshtml" />
+    <Content Include="Views\Coupon\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -120,8 +125,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
-    <Folder Include="Views\MemberCard\" />
+    <Folder Include="Views\Membership\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL_9H\BLL_9H.csproj">

@@ -17,6 +17,7 @@ namespace BLL_9H
         private IAccessTokenDAL accessTokenDAL = new AccessTokenDAL();
         private ICodeMsgDAL codeMsgDAL = new CodeMsgDAL();
         private IAuthorizerInfoDAL authorizerInfoDAL = new AuthorizerInfoDAL();
+
         // 手机号 姓名
         public string Activate(int replacedAppID, string mobile, string realName)
         {

@@ -12,11 +12,17 @@ namespace WeChat_9H.Controllers
     {
         private IEntityShopBLL entityShopBLL = new EntityShopBLL();
 
+        /// <summary>
+        /// 门店列表
+        /// </summary>
         public ActionResult List()
         {
             return View(entityShopBLL.GetList(AppID));
         }
 
+        /// <summary>
+        /// 门店详情
+        /// </summary>
         public ActionResult Details(string id)
         {
             return View(entityShopBLL.GetModel(AppID, id));

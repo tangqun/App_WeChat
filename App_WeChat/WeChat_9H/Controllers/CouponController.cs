@@ -6,20 +6,17 @@ using System.Web.Mvc;
 
 namespace WeChat_9H.Controllers
 {
-    public class MemberCardController : Controller
+    public class CouponController : Controller
     {
         /// <summary>
-        /// 会员卡主页
+        /// 优惠券列表，仅支持部分券
         /// </summary>
-        public ActionResult Index()
+        public ActionResult List()
         {
             return View();
         }
 
-        /// <summary>
-        /// 会员卡激活
-        /// </summary>
-        public ActionResult Activate()
+        public ActionResult Details()
         {
             return View();
         }
