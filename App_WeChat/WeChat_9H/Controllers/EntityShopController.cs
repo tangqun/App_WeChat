@@ -10,14 +10,12 @@ namespace WeChat_9H.Controllers
 {
     public class EntityShopController : BaseController
     {
-        private IEntityShopBLL entityShopBLL = new EntityShopBLL();
-
         /// <summary>
         /// 门店列表
         /// </summary>
         public ActionResult List()
         {
-            return View(entityShopBLL.GetList(AppID));
+            return View();
         }
 
         /// <summary>
@@ -25,7 +23,7 @@ namespace WeChat_9H.Controllers
         /// </summary>
         public ActionResult Details(string id)
         {
-            return View(entityShopBLL.GetModel(AppID, id));
+            return View();
         }
     }
 }

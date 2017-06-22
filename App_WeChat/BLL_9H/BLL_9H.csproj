@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardBLL.cs" />
-    <Compile Include="EntityShopBLL.cs" />
     <Compile Include="MemberCardBLL.cs" />
     <Compile Include="MsgBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model_9H
 {
-    public class Poi_Add_Req
+    public class CodeMsgModel
     {
-        public string Access_Token { get; set; }
-        public EntityShop Buffer { get; set; }
+        public int Code { get; set; }
+        public string Msg { get; set; }
     }
 }
