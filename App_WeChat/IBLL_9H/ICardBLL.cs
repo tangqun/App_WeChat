@@ -9,6 +9,5 @@ namespace IBLL_9H
 {
     public interface ICardBLL
     {
-        //Member_Card GetModel(string appid);
     }
 }

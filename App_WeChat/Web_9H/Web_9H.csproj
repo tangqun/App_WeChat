@@ -112,6 +112,7 @@
     <Content Include="Log4Net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\wx.smartyancheng.com.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -122,6 +123,20 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL_9H\BLL_9H.csproj">
+      <Project>{fad2d524-20b2-4779-ad84-29c864f4187c}</Project>
+      <Name>BLL_9H</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helper_9H\Helper_9H.csproj">
+      <Project>{645A5D32-32C7-4E7A-9999-C97889AFA612}</Project>
+      <Name>Helper_9H</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBLL_9H\IBLL_9H.csproj">
+      <Project>{45f23ead-17fc-45a1-97ac-61c54d89aff4}</Project>
+      <Name>IBLL_9H</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

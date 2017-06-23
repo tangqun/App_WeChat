@@ -19,15 +19,14 @@ namespace BLL_9H
         private IAuthorizerInfoDAL authorizerInfoDAL = new AuthorizerInfoDAL();
 
         // 手机号 姓名
-        public string Activate(int replacedAppID, string mobile, string realName)
+        public string Activate(string authorizerAppID, string mobile, string realName)
         {
             try
             {
-                AuthorizerInfoModel authorizerInfoModel = authorizerInfoDAL.GetModel(replacedAppID);
+                string accessToken = accessTokenDAL.Get(authorizerAppID);
+                string url = "https://api.weixin.qq.com/card/membercard/activate?access_token=" + accessToken;
 
-                string url = "https://api.weixin.qq.com/card/membercard/activate?access_token=" + accessTokenDAL.Get(authorizerInfoModel.AuthorizerAppID);
-
-                LogHelper.Info("接口激活url: " + url);
+                LogHelper.Info("6.1 接口激活 url", url);
 
                 MemberCardActivateReq req = new MemberCardActivateReq()
                 {
@@ -49,11 +48,11 @@ namespace BLL_9H
 
                 string requestBody = JsonConvert.SerializeObject(req);
 
-                LogHelper.Info("接口激活requestBody: " + requestBody);
+                LogHelper.Info("6.1 接口激活 requestBody", requestBody);
 
                 string responseBody = HttpHelper.Post(url, requestBody);
 
-                LogHelper.Info("接口激活responseBody: " + responseBody);
+                LogHelper.Info("6.1 接口激活 responseBody", responseBody);
 
                 MemberCardActivateResp resp = JsonConvert.DeserializeObject<MemberCardActivateResp>(responseBody);
                 if (resp.ErrCode == 0)
@@ -68,7 +67,7 @@ namespace BLL_9H
             }
             catch (Exception ex)
             {
-                LogHelper.Error("唐群", ex);
+                LogHelper.Error(ex);
                 return JsonConvert.SerializeObject(new RESTfulModel() { Code = (int)CodeEnum.系统异常, Msg = codeMsgDAL.GetByCode((int)CodeEnum.系统异常) });
             }
         }

@@ -42,7 +42,7 @@ namespace DAL_9H
             return null;
         }
 
-        public AuthorizerInfoModel GetModel(int id)
+        public AuthorizerInfoModel GetModel(int authorizerAppID)
         {
             string sql =
                         @"SELECT
@@ -66,8 +66,8 @@ namespace DAL_9H
                             `create_time`,
                             `update_time`
                         FROM `authorizer_info`
-                        WHERE `id` = @id LIMIT 0, 1;";
-            DataRow dr = MySqlHelper.ExecuteDataRow(ConfigHelper.ConnStr, sql, new MySqlParameter("@id", id));
+                        WHERE `authorizer_appid` = @authorizer_appid;";
+            DataRow dr = MySqlHelper.ExecuteDataRow(ConfigHelper.ConnStr, sql, new MySqlParameter("@authorizer_appid", authorizerAppID));
             return EntityToModel(dr);
         }
     }

@@ -9,6 +9,6 @@ namespace IDAL_9H
 {
     public interface IAuthorizerInfoDAL
     {
-        AuthorizerInfoModel GetModel(int id);
+        AuthorizerInfoModel GetModel(int authorizerAppID);
     }
 }

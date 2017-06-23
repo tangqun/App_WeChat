@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="AccessTokenDAL.cs" />
     <Compile Include="AuthorizerInfoDAL.cs" />
-    <Compile Include="CardInfoDAL.cs" />
     <Compile Include="CodeMsgDAL.cs" />
     <Compile Include="ComponentAccessTokenDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

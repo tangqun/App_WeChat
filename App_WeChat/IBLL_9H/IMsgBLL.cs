@@ -10,6 +10,6 @@ namespace IBLL_9H
 {
     public interface IMsgBLL
     {
-        string Receive(string authorizer_appid, Stream request_stream);
+        string Receive(string authorizerAppID, Stream requestStream);
     }
 }

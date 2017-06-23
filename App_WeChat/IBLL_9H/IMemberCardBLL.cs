@@ -8,6 +8,6 @@ namespace IBLL_9H
 {
     public interface IMemberCardBLL
     {
-        string Activate(int replacedAppID, string mobile, string realName);
+        string Activate(string authorizerAppID, string mobile, string realName);
     }
 }

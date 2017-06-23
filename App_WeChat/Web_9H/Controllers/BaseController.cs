@@ -1,28 +1,46 @@
-﻿using System;
+﻿using Helper_9H;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WeChat_9H.Controllers
+namespace Web_9H.Controllers
 {
     public class BaseController : Controller
     {
-        public string AppID = "wxae43212cd9f3ed6e";
+        public string AuthorizerAppID = string.Empty;
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             string host = filterContext.HttpContext.Request.Url.Host;
-            Regex regex = new Regex("([0-9]{1,6})\\.wechat\\.smartyc\\.com", RegexOptions.IgnoreCase);
 
-            if (regex.IsMatch(host))
+            // wxae43212cd9f3ed6e
+            // wxae43212cd9f3ed6e
+            Regex regex = new Regex("^([a-z0-9]{18})\\.wx\\.smartyancheng\\.com$", RegexOptions.IgnoreCase);
+
+            // 主机头
+            if (ConfigHelper.UniversalHost == host.ToLower())
             {
-                // 根据编号查询真实AppID
-                string replacedAppID = regex.Match(host).Groups[1].Value;
-
-                base.OnActionExecuting(filterContext);
+                // 授权、分享、消息
+                
             }
+            else if (regex.IsMatch(host))
+            {
+                // 请求子页
+                string authorizerAppID = regex.Match(host).Groups[1].Value;
+
+                AuthorizerAppID = authorizerAppID;
+
+                
+            }
+            else
+            {
+                filterContext.Result = new HttpStatusCodeResult(404);
+            }
+
+            base.OnActionExecuting(filterContext);
         }
     }
 }

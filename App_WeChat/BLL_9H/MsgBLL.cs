@@ -11,7 +11,7 @@ namespace BLL_9H
 {
     public class MsgBLL : IMsgBLL
     {
-        public string Receive(string authorizer_appid, Stream requestStream)
+        public string Receive(string authorizerAppID, Stream requestStream)
         {
             try
             {
@@ -19,13 +19,13 @@ namespace BLL_9H
                 requestStream.Read(requestBytes, 0, (int)requestStream.Length);
                 string requestBody = Encoding.UTF8.GetString(requestBytes);
 
-                LogHelper.Info("requestBody: " + requestBody);
+                LogHelper.Info("公众号消息与事件 requestBody", requestBody);
 
                 return "success";
             }
             catch (Exception ex)
             {
-                LogHelper.Error("唐群", ex);
+                LogHelper.Error(ex);
                 // 微信服务器在五秒内收不到响应会断掉连接，并且重新发起请求，总共重试三次。
                 // 假如服务器无法保证在五秒内处理并回复，可以直接回复空串，微信服务器不会对此作任何处理，并且不会发起重试。
                 return "exception";
