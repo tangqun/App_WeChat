@@ -14,7 +14,11 @@ namespace Web_9H.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            string host = filterContext.HttpContext.Request.Url.Host;
+            HttpRequestBase request = filterContext.HttpContext.Request;
+
+            LogHelper.Info("原始请求 url", request.Url.AbsoluteUri);
+
+            string host = request.Url.Host;
 
             // wxae43212cd9f3ed6e
             // wxae43212cd9f3ed6e
