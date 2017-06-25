@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <div>
+        判断是否领取会员卡 @ViewBag.AuthorizerAppID
+    </div>
+    <div id="js_add_card">
+        领取会员卡
+    </div>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../../plugins/jquery/jquery.js"></script>
+    <script>
+        $(function () {
+            var url = (location.href.split('#'))[0].toString();
+            url = encodeURIComponent(url);
+
+            var config = {
+                debug: false,
+                appId: '@ViewBag.AuthorizerAppID',
+                timestamp: '',
+                nonceStr: '',
+                signature: '',
+                jsApiList: ['openCard', 'addCard', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone', 'openAddress', 'chooseWXPay']
+            };
+
+            $.ajax({
+                url: '/home/getjsapiconfig?authorizerappid=' + '@ViewBag.AuthorizerAppID' + '&url=' + url,
+                type: 'get',
+                async: !1,
+                dataType: 'json',
+                success: function (data) {
+                    if (data) {
+                        if (data.code == 0) {
+                            var configData = data.data;
+                            config.timestamp = configData.timestamp,
+                            config.nonceStr = configData.nonceStr,
+                            config.signature = configData.signature
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                },
+                error: function () {
+                    console && console.log('签名失败')
+                }
+            });
+
+            wx.config(config);
+
+            var apiConfig = {
+                cardList: []
+            };
+
+            $.ajax({
+                url: '/home/getapiconfig?authorizerappid=' + '@ViewBag.AuthorizerAppID',
+                type: 'get',
+                async: !1,
+                dataType: 'json',
+                success: function (data) {
+                    if (data) {
+                        if (data.code == 0) {
+                            var configData = data.data;
+                            apiConfig.cardList.push({
+                                cardId: configData.cardID,
+                                cardExt: configData.cardExt
+                            });
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                },
+                error: function () {
+                    console && console.log('签名失败')
+                }
+            });
+
+            $('#js_add_card').on('click', function () {
+                wx.addCard(apiConfig);
+            });
+        });
+    </script>
+</body>
+</html>

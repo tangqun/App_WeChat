@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDAL_9H
+namespace IBLL_9H
 {
-    public interface IAccessTokenDAL
+    public interface IOAuth2BLL
     {
-        AuthorizationInfoModel Get(string authorizerAppID);
+        RESTfulModel GetAuth(string authorizerAppID, string code, string state);
     }
 }

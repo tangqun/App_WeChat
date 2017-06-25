@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{45F23EAD-17FC-45A1-97AC-61C54D89AFF4}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{DB0CE66F-8FE1-4A65-9208-8E9ADADC5498}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IBLL_9H</RootNamespace>
-    <AssemblyName>IBLL_9H</AssemblyName>
+    <RootNamespace>EncryptTest</RootNamespace>
+    <AssemblyName>EncryptTest</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,17 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IConfigBLL.cs" />
-    <Compile Include="IOAuth2BLL.cs" />
-    <Compile Include="ICardBLL.cs" />
-    <Compile Include="IMemberCardBLL.cs" />
-    <Compile Include="IMsgBLL.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model_9H\Model_9H.csproj">
-      <Project>{4E21AA5D-633A-430D-8549-6CA12DF59985}</Project>
-      <Name>Model_9H</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helper_9H\Helper_9H.csproj">
+      <Project>{645a5d32-32c7-4e7a-9999-c97889afa612}</Project>
+      <Name>Helper_9H</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

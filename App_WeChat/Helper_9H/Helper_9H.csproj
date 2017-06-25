@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigHelper.cs" />
+    <Compile Include="UtilsHelper.cs" />
     <Compile Include="WeChat\Cryptography.cs" />
     <Compile Include="HttpHelper.cs" />
     <Compile Include="LogHelper.cs" />

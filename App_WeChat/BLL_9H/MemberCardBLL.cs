@@ -14,8 +14,8 @@ namespace BLL_9H
 {
     public class MemberCardBLL : IMemberCardBLL
     {
-        private IAccessTokenDAL accessTokenDAL = new AccessTokenDAL();
         private ICodeMsgDAL codeMsgDAL = new CodeMsgDAL();
+        private IAccessTokenDAL accessTokenDAL = new AccessTokenDAL();
         private IAuthorizerInfoDAL authorizerInfoDAL = new AuthorizerInfoDAL();
 
         // 手机号 姓名
@@ -23,8 +23,8 @@ namespace BLL_9H
         {
             try
             {
-                string accessToken = accessTokenDAL.Get(authorizerAppID);
-                string url = "https://api.weixin.qq.com/card/membercard/activate?access_token=" + accessToken;
+                AuthorizationInfoModel authorizationInfoModel = accessTokenDAL.Get(authorizerAppID);
+                string url = "https://api.weixin.qq.com/card/membercard/activate?access_token=" + authorizationInfoModel.AuthorizerAccessToken;
 
                 LogHelper.Info("6.1 接口激活 url", url);
 

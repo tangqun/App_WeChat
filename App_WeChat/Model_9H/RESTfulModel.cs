@@ -19,5 +19,10 @@ namespace Model_9H
 
         [JsonProperty("desc")]
         public string Desc { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }
