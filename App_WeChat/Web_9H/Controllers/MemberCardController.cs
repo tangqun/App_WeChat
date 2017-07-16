@@ -18,24 +18,25 @@ namespace Web_9H.Controllers
         /// </summary>
         public ActionResult Index(string code, string state, string appID)
         {
-            if (string.IsNullOrEmpty(code))
-            {
-                // 用户取消了授权
-                return View();
-            }
-            else
-            {
-                RESTfulModel resp = oauth2BLL.GetAuth(appID, code, state);
-                if (resp.Code == 0)
-                {
-                    ViewBag.OpenID = resp.Data;
-                    return View();
-                }
-                else
-                {
-                    return View();
-                }
-            }
+            //if (string.IsNullOrEmpty(code))
+            //{
+            //    // 用户取消了授权
+            //    return View();
+            //}
+            //else
+            //{
+            //    RESTfulModel resp = oauth2BLL.GetAuth(appID, code, state);
+            //    if (resp.Code == 0)
+            //    {
+            //        ViewBag.OpenID = resp.Data;
+            //        return View();
+            //    }
+            //    else
+            //    {
+            //        return View();
+            //    }
+            //}
+            return View();
         }
 
         /// <summary>

@@ -25,7 +25,11 @@ namespace Web_9H.Controllers
             Regex regex = new Regex("^([a-z0-9]{18})\\.wx\\.smartyancheng\\.com$", RegexOptions.IgnoreCase);
 
             // 主机头
-            if (ConfigHelper.UniversalHost == host.ToLower())
+            if (true)
+            {
+
+            }
+            else if (ConfigHelper.UniversalHost == host.ToLower())
             {
                 // 授权、分享、消息
                 

@@ -89,10 +89,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\common.css" />
     <Content Include="Global.asax" />
+    <Content Include="js\flexible.js" />
     <Content Include="plugins\jquery\jquery.js" />
     <Content Include="plugins\jquery\jquery.min.js" />
     <Content Include="plugins\jquery\jquery.min.map" />
+    <Content Include="plugins\weui\weui.js" />
+    <Content Include="plugins\weui\weui.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +122,8 @@
     </Content>
     <None Include="Properties\PublishProfiles\wx.smartyancheng.com.pubxml" />
     <Content Include="Views\EntityShop\List.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -127,10 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="js\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Error\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL_9H\BLL_9H.csproj">
