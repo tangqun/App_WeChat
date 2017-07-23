@@ -4,23 +4,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Set render engine for 360 browser -->
     <meta name="renderer" content="webkit" />
+
     <title>@ViewBag.Title</title>
     <link href="../../css/common.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @RenderBody()
-    </div>
+    @RenderBody()
+
     <script src="../../plugins/jquery/jquery.js"></script>
     <script src="../../js/flexible.js"></script>
-    <script>
-        $(function () {
-            var dpr = $('html').attr('data-dpr');
-            var width = document.documentElement.getBoundingClientRect().width;
-            var out = 'dpr: ' + dpr + ', width: ' + width;
-            alert(out)
-        })
-    </script>
+
 </body>
 </html>
