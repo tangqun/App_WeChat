@@ -91,8 +91,10 @@
   <ItemGroup>
     <Content Include="css\common.css" />
     <Content Include="Controllers\weui.css" />
+    <Content Include="css\weui.css" />
     <Content Include="Global.asax" />
     <Content Include="js\flexible.js" />
+    <Content Include="plugins\font-weui\css\font-weui.css" />
     <Content Include="plugins\jquery\jquery.js" />
     <Content Include="plugins\jquery\jquery.min.js" />
     <Content Include="plugins\jquery\jquery.min.map" />
