@@ -9,14 +9,17 @@
     <meta name="renderer" content="webkit" />
 
     <title>@ViewBag.Title</title>
+    <link href="../../plugins/swiper/css/swiper.css" rel="stylesheet" />
+    <link href="../../plugins/weui/css/font-weui.css" rel="stylesheet" />
+    <link href="../../plugins/weui/css/weui-cell.css" rel="stylesheet" />
     <link href="../../css/common.css" rel="stylesheet" />
 </head>
 <body>
     @RenderBody()
 
-    <link href="../../plugins/font-weui/css/font-weui.css" rel="stylesheet" />
-    <script src="../../plugins/jquery/jquery.js"></script>
     <script src="../../js/flexible.js"></script>
-
+    <script src="../../plugins/jquery/jquery.js"></script>
+    <script src=",,/../plugins/swiper/js/swiper.jquery.js"></script>
+    @RenderSection("js", false)
 </body>
 </html>

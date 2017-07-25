@@ -91,15 +91,25 @@
   <ItemGroup>
     <Content Include="css\common.css" />
     <Content Include="Controllers\weui.css" />
-    <Content Include="css\weui.css" />
+    <Content Include="js\test.js" />
+    <Content Include="plugins\swiper\css\swiper.css" />
+    <Content Include="plugins\swiper\css\swiper.min.css" />
+    <Content Include="plugins\swiper\js\swiper.jquery.js" />
+    <Content Include="plugins\swiper\js\swiper.jquery.min.js" />
+    <Content Include="plugins\swiper\js\swiper.jquery.umd.js" />
+    <Content Include="plugins\swiper\js\swiper.jquery.umd.min.js" />
+    <Content Include="plugins\swiper\js\swiper.js" />
+    <Content Include="plugins\swiper\js\swiper.min.js" />
+    <Content Include="plugins\weui\css\weui-cell.css" />
+    <Content Include="plugins\weui\css\weui.css" />
     <Content Include="Global.asax" />
     <Content Include="js\flexible.js" />
-    <Content Include="plugins\font-weui\css\font-weui.css" />
+    <Content Include="plugins\weui\css\font-weui.css" />
     <Content Include="plugins\jquery\jquery.js" />
     <Content Include="plugins\jquery\jquery.min.js" />
     <Content Include="plugins\jquery\jquery.min.map" />
-    <Content Include="plugins\weui\weui.js" />
-    <Content Include="plugins\weui\weui.min.js" />
+    <Content Include="plugins\weui\js\weui.js" />
+    <Content Include="plugins\weui\js\weui.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +133,9 @@
     <Content Include="Log4Net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="plugins\swiper\js\maps\swiper.jquery.min.js.map" />
+    <Content Include="plugins\swiper\js\maps\swiper.jquery.umd.min.js.map" />
+    <Content Include="plugins\swiper\js\maps\swiper.min.js.map" />
     <None Include="Properties\PublishProfiles\wx.smartyancheng.com.pubxml" />
     <Content Include="Views\EntityShop\List.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

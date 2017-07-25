@@ -1,0 +1,113 @@
+﻿.weui-cells {
+  /* 调整书写顺序，line-height、font-size继承(删除) */
+  position: relative;
+  overflow: hidden;
+  margin-top: .3rem;
+  background-color: #ffffff;
+}
+.weui-cells:before {
+  /* 调整书写顺序，删除无效样式 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  border-top: .02rem solid #e5e5e5;
+  height: .02rem;
+  color: #e5e5e5;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  /*-webkit-transform-origin: 0 0;
+          transform-origin: 0 0;*/
+  content: " ";
+}
+.weui-cells:after {
+  /* 调整书写顺序，删除无效样式 */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  border-bottom: .02rem solid #e5e5e5;
+  height: .02rem;
+  color: #e5e5e5;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  /*-webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;*/
+  content: " ";
+}
+.weui-cells-title {
+  /* font-size继承(删除) */
+  margin-top: .2rem;
+  margin-bottom: .1rem;
+  padding-left: .3rem;
+  padding-right: .3rem;
+  color: #999999;
+}
+.weui-cells-title + .weui-cells {
+  margin-top: 0;
+}
+.weui-cell {
+  /* 调整书写顺序 */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+    -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  position: relative;
+  padding: .3rem;
+}
+.weui-cell:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: .3rem;
+  z-index: 2;
+  border-top: .02rem solid #e5e5e5;
+  height: .2rem;
+  color: #e5e5e5;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  /*-webkit-transform-origin: 0 0;
+          transform-origin: 0 0;*/
+  content: " ";
+}
+.weui-cell:first-child:before {
+  display: none;
+}
+.weui-cell-bd {
+  -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1;
+}
+.weui-cell-ft {
+  text-align: right;
+}
+.weui-cell-access {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: inherit;
+}
+.weui-cell-access:active {
+  background-color: #ececec;
+}
+.weui-cell-access .weui-cell-ft {
+  position: relative;
+  padding-right: .3rem;
+}
+.weui-cell-access .weui-cell-ft:after {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -.04rem;
+  border-width: .04rem .04rem 0 0;
+  border-style: solid;
+  border-color: #c8c8cd;
+  height: .15rem;
+  width: .15rem;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+          transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  content: " ";
+}

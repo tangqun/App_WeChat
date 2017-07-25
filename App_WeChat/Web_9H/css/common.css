@@ -5,14 +5,14 @@
   padding: 0;
   border: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 a {
   text-decoration: none;
 }
 html {
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 html,
@@ -26,123 +26,13 @@ body {
   font-size: 14px;
   line-height: 1.6;
   color: #333333;
-  background: #ffffff;
+  background: #f8f8f8;
 }
 [data-dpr="2"] body {
   font-size: 28px;
 }
 [data-dpr="3"] body {
   font-size: 42px;
-}
-/* ==========================================================================
-   Component: weui-cells
- ============================================================================ */
-.weui-cells-title {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-.weui-cells-title + .weui-cells {
-  margin-top: 0;
-}
-.weui-cells {
-  position: relative;
-  overflow: hidden;
-  margin-top: 1.5rem;
-}
-.weui-cells:before {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: .1rem;
-  border-top: .1rem solid #e5e5e5;
-  color: #e5e5e5;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: scaleY(0.5);
-          transform: scaleY(0.5);
-  z-index: 2;
-}
-.weui-cells:after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: .1rem;
-  border-bottom: .1rem solid #e5e5e5;
-  color: #e5e5e5;
-  -webkit-transform-origin: 0 100%;
-          transform-origin: 0 100%;
-  -webkit-transform: scaleY(0.5);
-          transform: scaleY(0.5);
-  z-index: 2;
-}
-.weui-cell {
-  padding: 1.5rem;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-}
-.weui-cell:before {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: .1rem;
-  border-top: .1rem solid #e5e5e5;
-  color: #e5e5e5;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transform: scaleY(0.5);
-          transform: scaleY(0.5);
-  left: 1.5rem;
-  z-index: 2;
-}
-.weui-cell:first-child:before {
-  display: none;
-}
-.weui-cell-bd {
-  -webkit-box-flex: 1;
-      -webkit-flex: 1;
-              flex: 1;
-}
-.weui-cell-ft {
-  text-align: right;
-}
-.weui-cell-access {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  color: inherit;
-}
-.weui-cell-access:active {
-  background-color: #ECECEC;
-}
-.weui-cell-access .weui-cell-ft {
-  padding-right: 1.5rem;
-  position: relative;
-}
-.weui-cell-access .weui-cell-ft:after {
-  content: " ";
-  display: inline-block;
-  height: 1rem;
-  width: 1rem;
-  border-width: .2rem .2rem 0 0;
-  border-color: #C8C8CD;
-  border-style: solid;
-  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
-          transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
-  position: absolute;
-  top: 50%;
-  margin-top: -.4rem;
-  right: 0;
 }
 /* ==========================================================================
    Component: Utility
@@ -522,4 +412,13 @@ body {
 }
 .mui-text-nowrap {
   white-space: nowrap;
+}
+
+
+
+
+
+
+.swiper-slide img{
+  width:100%;
 }
