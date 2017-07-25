@@ -90,7 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common.css" />
-    <Content Include="Controllers\weui.css" />
     <Content Include="js\test.js" />
     <Content Include="plugins\swiper\css\swiper.css" />
     <Content Include="plugins\swiper\css\swiper.min.css" />
