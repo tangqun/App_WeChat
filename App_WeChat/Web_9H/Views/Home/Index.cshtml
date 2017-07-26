@@ -6,13 +6,13 @@
 
 <div class="mui-page">
     <div class="mui-page-hd">
-        <div class="swiper-container" id="js-swiper-container">
+        @*<div class="swiper-container" id="js-swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="http://oss.aliyuncs.com/weimob-com/image/64/bd/d4/20170107/20170107094541_58823.jpg" /></div>
                 <div class="swiper-slide"><img src="http://oss.aliyuncs.com/weimob-com/image/64/bd/d4/20170107/20170107095621_13539.jpg" /></div>
                 <div class="swiper-slide"><img src="http://oss.aliyuncs.com/weimob-com/image/64/bd/d4/20170107/20170107095629_88392.jpg" /></div>
             </div>
-        </div>
+        </div>*@
     </div>
 
     <div class="mui-page-bd">
@@ -20,7 +20,7 @@
         <div class="weui-cells">
 
             <div class="weui-cell" href="javascript:;">
-                <div class="weui-cell-hd"></div>
+                <div class="weui-cell-hd"><i class="fa fa-clock-o fa-lg"></i></div>
                 <div class="weui-cell-bd">
                     <p>营业时间：10:00 - 18:00</p>
                 </div>
@@ -40,15 +40,6 @@
                 </div>
                 <div class="weui-cell-ft"></div>
             </a>
-            <div class="weui-cell" href="javascript:;">
-                <div class="weui-cell-hd" style="width: 3.75rem">
-                    <p>我的优惠券</p>
-                </div>
-                <div class="weui-cell-bd">
-                    <p>我的订单</p>
-                </div>
-                <div class="weui-cell-ft"></div>
-            </div>
         </div>
         <div class="weui-cells">
 
@@ -57,7 +48,7 @@
                 <div class="weui-cell-bd">
                     <p>会员享受9折优惠</p>
                 </div>
-                <div class="weui-cell-ft"></div>
+                <div class="weui-cell-ft"><i class="fa fa-angle-right" style="font-size: 1.6em;"></i></div>
             </a>
         </div>
         <div class="weui-cells">
@@ -94,9 +85,9 @@
 @section js {
     <script>
         $(function () {
-            var mySwiper = new Swiper('.swiper-container', {
-                //autoplay: 5000,//可选选项，自动滑动
-            })
+            //var mySwiper = new Swiper('.swiper-container', {
+            //    autoplay: 5000,//可选选项，自动滑动
+            //})
         })
     </script>
 }
