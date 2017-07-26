@@ -114,7 +114,6 @@
     <Content Include="plugins\jquery\jquery.js" />
     <Content Include="plugins\jquery\jquery.min.js" />
     <Content Include="plugins\jquery\jquery.min.map" />
-    <Content Include="plugins\weui\fonts\ionicons.svg" />
     <Content Include="plugins\weui\js\weui.js" />
     <Content Include="plugins\weui\js\weui.min.js" />
     <Content Include="Web.config" />
@@ -151,9 +150,6 @@
     <Content Include="plugins\ionicons\fonts\ionicons.eot" />
     <Content Include="plugins\ionicons\fonts\ionicons.ttf" />
     <Content Include="plugins\ionicons\fonts\ionicons.woff" />
-    <Content Include="plugins\weui\fonts\ionicons.eot" />
-    <Content Include="plugins\weui\fonts\ionicons.ttf" />
-    <Content Include="plugins\weui\fonts\ionicons.woff" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
