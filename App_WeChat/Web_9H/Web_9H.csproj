@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="js\test.js" />
     <Content Include="plugins\font-awesome\css\font-awesome.css" />
     <Content Include="plugins\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -153,6 +154,11 @@
     <Content Include="plugins\weui\fonts\ionicons.eot" />
     <Content Include="plugins\weui\fonts\ionicons.ttf" />
     <Content Include="plugins\weui\fonts\ionicons.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\wx.smartyancheng.com.pubxml" />
     <Content Include="Views\EntityShop\List.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
