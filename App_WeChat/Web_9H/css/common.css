@@ -52,13 +52,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.mt-icon.mt-success {
+  color: #09bb07;
+}
+.mt-icon.mt-info {
+  color: #10aeff;
+}
+.mt-icon.mt-warning {
+  color: #ffbe00;
+}
+.mt-icon.mt-danger {
+  color: #f43530;
+}
+.mt-icon.mt-disabled {
+  color: #c9c9c9;
+}
 /* Fixed width */
 .mt-icon-fw {
   width: 1.2em;
   text-align: center;
-}
-.mt-icon-sm {
-    font-size: 1.5em;
 }
 .mt-icon-2x {
     font-size: 2em;
