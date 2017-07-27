@@ -91,6 +91,7 @@
   <ItemGroup>
     <Content Include="css\common.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="img\membercard.png" />
     <Content Include="js\test.js" />
     <Content Include="plugins\font-awesome\css\font-awesome.css" />
     <Content Include="plugins\font-awesome\css\font-awesome.min.css" />

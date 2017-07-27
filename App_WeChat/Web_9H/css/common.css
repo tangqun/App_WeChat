@@ -28,16 +28,10 @@ body {
   position: relative;
   font-family: -apple-system-font,"Helvetica Neue",sans-serif;
   font-weight: normal;
-  font-size: 16px;
+  font-size: .32rem;
   line-height: 1.6;
   color: #333333;
   background: #f8f8f8;
-}
-[data-dpr="2"] body {
-  font-size: 32px;
-}
-[data-dpr="3"] body {
-  font-size: 48px;
 }
 /* ==========================================================================
    Component: Icon
@@ -77,6 +71,9 @@ body {
 }
 .mt-icon-2x {
   font-size: 2em;
+}
+.mt-icon-3x {
+    font-size: 3em;
 }
 .mt-icon-4x {
   font-size: 4em;
@@ -2270,6 +2267,9 @@ body {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 .mt-flex-item {
   -webkit-box-flex: 1;
@@ -2430,6 +2430,12 @@ body {
 .mt-text-bold {
   font-weight: 700;
 }
+.mt-fl {
+    float: left;
+}
+.mt-fr {
+    float: right;
+}
 /* ==========================================================================
    Component: Fix
  ============================================================================ */
@@ -2439,8 +2445,19 @@ body {
 .swiper-slide img{
   width:100%;
 }
+.mt-card-properties {
+    padding: .3rem;
+    text-align: center;
+    background-color: #ffffff;
+}
+.mt-card-properties > .mt-flex-item {
+    border-left: .02rem solid #c5c5c5;
+}
+.mt-card-properties > .mt-flex-item:first-child {
+    border-left: 0;
+}
 /* ==========================================================================
-   Component: Custom
+   Component: Pages
  ============================================================================ */
 .swiper-fore {
   position: absolute; 
@@ -2448,38 +2465,41 @@ body {
   z-index: 999;
   padding: .3rem;
 }
-
-.mt-card-container {
+/* Card helper */
+.card-face-container {
   position: relative;
-  padding: .3rem;
+  background-color: #ffffff;
+  overflow: hidden;
 }
-.mt-card-wrapper {
-  line-height: 0;
+.card-face-wrapper {
+  position: relative;
+  line-height: 1;
+  margin: .3rem;
 }
-.mt-card-wrapper img {
+.card-face-wrapper img {
   width: 100%;
 }
-.mt-card-fore {
+.card-face-logo {
   position: absolute; 
-  top: .6rem; 
-  left: .6rem;
+  top: .3rem; 
+  left: .3rem;
   z-index: 999;
 }
-.mt-card-qrcode {
+.card-face-qrcode {
   position: absolute;
-  top: .6rem;
-  right: .6rem;
+  top: .3rem;
+  right: .3rem;
   z-index: 999;
 }
-.mt-card-num {
+.card-face-num {
   position: absolute;
-  bottom: .6rem;
-  left: .6rem;
+  bottom: .3rem;
+  left: .3rem;
   z-index: 999;
 }
-.mt-card-info {
+.card-face-info {
   position: absolute;
-  right: .6rem;
-  bottom: .6rem;
+  right: .3rem;
+  bottom: .3rem;
   z-index: 999;
 }
