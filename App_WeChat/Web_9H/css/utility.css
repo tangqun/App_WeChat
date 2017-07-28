@@ -1,0 +1,119 @@
+﻿/* ==========================================================================
+   Component: Utility
+ ============================================================================ */
+/* Margin helper */
+.mt-margin-0 {
+  margin: 0 !important;
+}
+.mt-margin-xs {
+  margin: .1rem;
+}
+.mt-margin-sm {
+  margin: .2rem;
+}
+.mt-margin-md {
+  margin: .3rem;
+}
+.mt-margin-lg {
+  margin: .4rem;
+}
+.mt-margin-horizontal-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.mt-margin-horizontal-xs {
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+.mt-margin-horizontal-sm {
+  margin-left: .2rem;
+  margin-right: .2rem;
+}
+.mt-margin-horizontal-md {
+  margin-left: .3rem;
+  margin-right: .3rem;
+}
+.mt-margin-horizontal-lg {
+  margin-left: .4rem;
+  margin-right: .4rem;
+}
+.mt-margin-vertical-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.mt-margin-vertical-xs {
+  margin-top: .1rem;
+  margin-bottom: .1rem;
+}
+.mt-margin-vertical-sm {
+  margin-top: .2rem;
+  margin-bottom: .2rem;
+}
+.mt-margin-vertical-md {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+.mt-margin-vertical-lg {
+  margin-top: .4rem;
+  margin-bottom: .4rem;
+}
+.mt-margin-top-0 {
+  margin-top: 0 !important;
+}
+.mt-margin-top-xs {
+  margin-top: .1rem;
+}
+.mt-margin-top-sm {
+  margin-top: .2rem;
+}
+.mt-margin-top-md {
+  margin-top: 1.6rem;
+}
+.mt-margin-top-lg {
+  margin-top: .4rem;
+}
+.mt-margin-bottom-0 {
+  margin-bottom: 0 !important;
+}
+.mt-margin-bottom-xs {
+  margin-bottom: .1rem;
+}
+.mt-margin-bottom-sm {
+  margin-bottom: .2rem;
+}
+.mt-margin-bottom-md {
+  margin-bottom: .3rem;
+}
+.mt-margin-bottom-lg {
+  margin-bottom: .4rem;
+}
+.mt-margin-left-0 {
+  margin-left: 0 !important;
+}
+.mt-margin-left-xs {
+  margin-left: .1rem;
+}
+.mt-margin-left-sm {
+  margin-left: .2rem;
+}
+.mt-margin-left-md {
+  margin-left: .3rem;
+}
+.mt-margin-left-lg {
+  margin-left: .4rem;
+}
+.mt-margin-right-0 {
+  margin-right: 0 !important;
+}
+.mt-margin-right-xs {
+  margin-right: .1rem;
+}
+.mt-margin-right-sm {
+  margin-right: .2rem;
+}
+.mt-margin-right-md {
+  margin-right: .3rem;
+}
+.mt-margin-right-lg {
+  margin-right: .4rem;
+}

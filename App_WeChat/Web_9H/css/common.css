@@ -32,7 +32,7 @@ body {
   font-family: -apple-system-font,"Helvetica Neue",sans-serif;
   font-weight: normal;
   font-size: .32rem;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #333333;
   background: #f8f8f8;
 }
@@ -2225,17 +2225,38 @@ body {
 /* ==========================================================================
    Component: Button
  ============================================================================ */
-/*.mt-btn-primary {
+.mt-btn {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: .15rem .2rem;
+  border-radius: .1rem;
+  text-align: center;
   color: #ffffff;
-}*/
+}
+.mt-btn.mt-plain-success {
+    border: .02rem solid #09bb07;
+    color: #09bb07;
+    background-color: #ffffff;
+}
+.mt-btn.mt-plain-success:active {
+    color: #ffffff;
+    background-color: #09bb07;
+}
 /* ==========================================================================
    Component: Cell
  ============================================================================ */
+.mt-cells-title {
+    padding: .3rem;
+}
+.mt-cells-title + .mt-cells {
+    margin-top: 0;
+}
 .mt-cells {
   position: relative;
-  overflow: hidden;
   margin-top: .3rem;
-  border-width: .01rem 0;
+  border-width: .02rem 0;
   border-style: solid;
   border-color: #e5e5e5;
   background-color: #ffffff;
@@ -2244,9 +2265,6 @@ body {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
   position: relative;
   margin-left: .3rem;
   padding: .3rem .3rem .3rem 0;
@@ -2262,6 +2280,29 @@ body {
 }
 .mt-cell-ft {
   text-align: right;
+}
+.mt-label {
+    display: block;
+    width: 2rem;
+}
+.mt-label2 {
+    display: block;
+    width: 3rem;
+}
+.mt-input {
+    border: 0;
+    font-size: .32rem;
+    width: 100%;
+    background-color: transparent;
+    outline: 0;
+    -webkit-appearance: none;
+}
+.mt-checkbox {
+    border: .02rem solid #d1d1d1;
+    width: .24rem;
+    height: .24rem;
+    background-color: #ffffff;
+    outline: 0;
 }
 /* ==========================================================================
    Component: Flex
@@ -2282,122 +2323,6 @@ body {
 /* ==========================================================================
    Component: Utility
  ============================================================================ */
-/* Margin helper */
-.mt-margin-0 {
-  margin: 0 !important;
-}
-.mt-margin-xs {
-  margin: .1rem;
-}
-.mt-margin-sm {
-  margin: .2rem;
-}
-.mt-margin-md {
-  margin: .3rem;
-}
-.mt-margin-lg {
-  margin: .4rem;
-}
-.mt-margin-horizontal-0 {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.mt-margin-horizontal-xs {
-  margin-left: .1rem;
-  margin-right: .1rem;
-}
-.mt-margin-horizontal-sm {
-  margin-left: .2rem;
-  margin-right: .2rem;
-}
-.mt-margin-horizontal-md {
-  margin-left: .3rem;
-  margin-right: .3rem;
-}
-.mt-margin-horizontal-lg {
-  margin-left: .4rem;
-  margin-right: .4rem;
-}
-.mt-margin-vertical-0 {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-.mt-margin-vertical-xs {
-  margin-top: .1rem;
-  margin-bottom: .1rem;
-}
-.mt-margin-vertical-sm {
-  margin-top: .2rem;
-  margin-bottom: .2rem;
-}
-.mt-margin-vertical-md {
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
-}
-.mt-margin-vertical-lg {
-  margin-top: .4rem;
-  margin-bottom: .4rem;
-}
-.mt-margin-top-0 {
-  margin-top: 0 !important;
-}
-.mt-margin-top-xs {
-  margin-top: .1rem;
-}
-.mt-margin-top-sm {
-  margin-top: .2rem;
-}
-.mt-margin-top-md {
-  margin-top: 1.6rem;
-}
-.mt-margin-top-lg {
-  margin-top: .4rem;
-}
-.mt-margin-bottom-0 {
-  margin-bottom: 0 !important;
-}
-.mt-margin-bottom-xs {
-  margin-bottom: .1rem;
-}
-.mt-margin-bottom-sm {
-  margin-bottom: .2rem;
-}
-.mt-margin-bottom-md {
-  margin-bottom: .3rem;
-}
-.mt-margin-bottom-lg {
-  margin-bottom: .4rem;
-}
-.mt-margin-left-0 {
-  margin-left: 0 !important;
-}
-.mt-margin-left-xs {
-  margin-left: .1rem;
-}
-.mt-margin-left-sm {
-  margin-left: .2rem;
-}
-.mt-margin-left-md {
-  margin-left: .3rem;
-}
-.mt-margin-left-lg {
-  margin-left: .4rem;
-}
-.mt-margin-right-0 {
-  margin-right: 0 !important;
-}
-.mt-margin-right-xs {
-  margin-right: .1rem;
-}
-.mt-margin-right-sm {
-  margin-right: .2rem;
-}
-.mt-margin-right-md {
-  margin-right: .3rem;
-}
-.mt-margin-right-lg {
-  margin-right: .4rem;
-}
 /* Text color helper */
 .mt-text-success {
   color: #09bb07;
@@ -2417,8 +2342,14 @@ body {
 .mt-text-primary {
   color: #ffffff;
 }
+.mt-text-left {
+    text-align: left;
+}
+.mt-text-right {
+    text-align: right;
+}
 /* Text size helper */
-.mt-text-d2x {
+/*.mt-text-d2x {
   font-size: 1.2em;
 }
 .mt-text-d4x {
@@ -2438,12 +2369,12 @@ body {
 }
 .mt-fr {
     float: right;
-}
+}*/
 /* ==========================================================================
    Component: Fix
  ============================================================================ */
 .swiper-slide {
-    line-height: 0;
+  line-height: 1;
 }
 .swiper-slide img{
   width:100%;
@@ -2451,23 +2382,34 @@ body {
 /* ==========================================================================
    Component: Pages
  ============================================================================ */
-.swiper-fore {
+/* EntityShop details */
+.entityshop-details-face {
   position: absolute; 
   top: 2rem; 
   z-index: 999;
   padding: .3rem;
+}
+.entityshop-details-face-logo > img {
+    width: 1.8rem
+}
+.entityshop-details-face-text {
+    margin-left: .3rem;
+}
+.entityshop-details-text-brand {
+    font-weight: 700;
+    color: #ffffff;
+}
+.entityshop-details-text-title {
+    color: #ffffff;
 }
 /* Card helper */
 .card-face {
   position: relative;
   padding: .3rem;
   background-color: #ffffff;
-  overflow: hidden;
 }
 .card-face-hd {
   position: relative;
-  /*line-height: 1;*/
-  /*margin: .3rem;*/
 }
 .card-face-hd > img {
   width: 100%;
@@ -2486,8 +2428,8 @@ body {
   width: .96rem
 }
 .card-face-text {
-   margin-top: .15rem; 
-   margin-bottom: .15rem;
+   margin-top: .06rem; 
+   margin-bottom: .06rem;
    margin-left: .3rem;
 }
 .card-text-brand {
@@ -2495,7 +2437,6 @@ body {
   color: #ffffff;
 }
 .card-text-title {
-  margin-top: .1rem;
   font-size: .24rem;
   color: #ffffff;
 }
@@ -2530,6 +2471,9 @@ body {
 .card-face-bd > .mt-flex-item:first-child {
   border-left: 0;
 }
+.card-face-ft {
+    margin-top: .6rem;
+}
 /* Card services */
 .card-services-title {
   padding: .3rem;
@@ -2550,4 +2494,7 @@ body {
   border-left: .02rem solid #c5c5c5;
   padding: .3rem;
   text-align: center;
+}
+.card-service .mt-flex-item:first-child {
+    border-left: none;
 }
