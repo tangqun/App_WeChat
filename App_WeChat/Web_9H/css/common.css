@@ -15,6 +15,9 @@ a {
 a:active {
   background-color: #ececec;
 }
+img {
+  display: block;
+}
 html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
@@ -2222,9 +2225,9 @@ body {
 /* ==========================================================================
    Component: Button
  ============================================================================ */
-.mt-btn-primary {
+/*.mt-btn-primary {
   color: #ffffff;
-}
+}*/
 /* ==========================================================================
    Component: Cell
  ============================================================================ */
@@ -2445,17 +2448,6 @@ body {
 .swiper-slide img{
   width:100%;
 }
-.mt-card-properties {
-    padding: .3rem;
-    text-align: center;
-    background-color: #ffffff;
-}
-.mt-card-properties > .mt-flex-item {
-    border-left: .02rem solid #c5c5c5;
-}
-.mt-card-properties > .mt-flex-item:first-child {
-    border-left: 0;
-}
 /* ==========================================================================
    Component: Pages
  ============================================================================ */
@@ -2466,40 +2458,96 @@ body {
   padding: .3rem;
 }
 /* Card helper */
-.card-face-container {
+.card-face {
   position: relative;
+  padding: .3rem;
   background-color: #ffffff;
   overflow: hidden;
 }
-.card-face-wrapper {
+.card-face-hd {
   position: relative;
-  line-height: 1;
-  margin: .3rem;
+  /*line-height: 1;*/
+  /*margin: .3rem;*/
 }
-.card-face-wrapper img {
+.card-face-hd > img {
   width: 100%;
 }
-.card-face-logo {
+.card-face-info {
   position: absolute; 
   top: .3rem; 
   left: .3rem;
   z-index: 999;
+}
+.card-face-logo {
+
+}
+.card-face-logo > img {
+  border-radius: 50%; 
+  width: .96rem
+}
+.card-face-text {
+   margin-top: .15rem; 
+   margin-bottom: .15rem;
+   margin-left: .3rem;
+}
+.card-text-brand {
+  font-weight: 700;
+  color: #ffffff;
+}
+.card-text-title {
+  margin-top: .1rem;
+  font-size: .24rem;
+  color: #ffffff;
 }
 .card-face-qrcode {
   position: absolute;
   top: .3rem;
   right: .3rem;
   z-index: 999;
+  color: #ffffff;
 }
 .card-face-num {
   position: absolute;
   bottom: .3rem;
   left: .3rem;
   z-index: 999;
+  color: #ffffff;
 }
-.card-face-info {
+.card-face-details {
   position: absolute;
   right: .3rem;
   bottom: .3rem;
   z-index: 999;
+}
+.card-face-bd {
+  margin-top: .3rem;
+  text-align: center;
+  background-color: #ffffff;
+}
+.card-face-bd > .mt-flex-item {
+  border-left: .02rem solid #c5c5c5;
+}
+.card-face-bd > .mt-flex-item:first-child {
+  border-left: 0;
+}
+/* Card services */
+.card-services-title {
+  padding: .3rem;
+}
+.card-services {
+  border-width: .02rem 0;
+  border-style: solid;
+  border-color: #c5c5c5;
+  background-color: #ffffff;
+}
+.card-service {
+  border-top: .02rem solid #c5c5c5;
+}
+.card-service:first-child {
+  border-top: none;
+}
+.card-service .mt-flex-item {
+  border-left: .02rem solid #c5c5c5;
+  padding: .3rem;
+  text-align: center;
 }
