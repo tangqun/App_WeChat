@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E21AA5D-633A-430D-8549-6CA12DF59985}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{42E91E73-F4BC-4AF0-887D-31107D982AB3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Model_9H</RootNamespace>
-    <AssemblyName>Model_9H</AssemblyName>
+    <RootNamespace>ModelSerializeTest</RootNamespace>
+    <AssemblyName>ModelSerializeTest</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,9 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Web_9H\Bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,24 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIConfigModel.cs" />
-    <Compile Include="AuthorizationInfoModel.cs" />
-    <Compile Include="AuthorizerInfoModel.cs" />
-    <Compile Include="CodeMsgModel.cs" />
-    <Compile Include="Enums\CodeEnum.cs" />
-    <Compile Include="JSAPIConfigModel.cs" />
-    <Compile Include="MemberCardActivateModel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RESTfulModel.cs" />
-    <Compile Include="WeChat\CardCodeDecryptReq.cs" />
-    <Compile Include="WeChat\CardCodeDecryptResp.cs" />
-    <Compile Include="WeChat\OAuth2GetResp.cs" />
-    <Compile Include="WeChat\MemberCardActivateReq.cs" />
-    <Compile Include="WeChat\MemberCardActivateResp.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model_9H\Model_9H.csproj">
+      <Project>{4e21aa5d-633a-430d-8549-6ca12df59985}</Project>
+      <Name>Model_9H</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

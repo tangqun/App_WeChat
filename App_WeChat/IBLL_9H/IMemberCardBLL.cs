@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model_9H;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace IBLL_9H
 {
     public interface IMemberCardBLL
     {
-        string Activate(string authorizerAppID, string mobile, string realName);
+        string Activate(string authorizerAppID, MemberCardActivateModel model);
     }
 }

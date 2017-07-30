@@ -18,42 +18,47 @@ namespace BLL_9H
         private IAccessTokenDAL accessTokenDAL = new AccessTokenDAL();
         private IAuthorizerInfoDAL authorizerInfoDAL = new AuthorizerInfoDAL();
 
-        // 手机号 姓名
-        public string Activate(string authorizerAppID, string mobile, string realName)
+        /// <summary>
+        /// 手机号显示在卡面上，Code用腾讯生成的
+        /// </summary>
+        public string Activate(string authorizerAppID, MemberCardActivateModel model)
         {
             try
             {
+                // 验证参数
+
                 AuthorizationInfoModel authorizationInfoModel = accessTokenDAL.Get(authorizerAppID);
-                string url = "https://api.weixin.qq.com/card/membercard/activate?access_token=" + authorizationInfoModel.AuthorizerAccessToken;
+                string authorizerAccessToken = authorizationInfoModel.AuthorizerAccessToken;
+                LogHelper.Info("6.1 接口激活 authorizerAccessToken", authorizerAccessToken);
 
+                // Code解码
+                string code = string.Empty;
+                if (!DecryptCode(authorizerAccessToken, model.EncryptCode, out code))
+                {
+                    return JsonConvert.SerializeObject(new RESTfulModel() { Code = (int)CodeEnum.Code解码失败, Msg = string.Format(codeMsgDAL.GetByCode((int)CodeEnum.Code解码失败), model.EncryptCode) });
+                };
+
+                string url = "https://api.weixin.qq.com/card/membercard/activate?access_token=" + authorizerAccessToken;
                 LogHelper.Info("6.1 接口激活 url", url);
-
                 MemberCardActivateReq req = new MemberCardActivateReq()
                 {
                     // 手机号作为会员卡号
-                    MembershipNumber = mobile,
-                    Code = mobile,
-                    CardID = "",
-                    InitBonus = 0,
-                    InitBonusRecord = "",
-                    InitBalance = 0,
-                    // 初始积分
-                    InitCustomFieldValue1 = "0",
+                    MembershipNumber = model.Mobile,
+                    Code = code,
+                    CardID = model.CardID,
+                    //InitBonus = 0,
+                    //InitBonusRecord = "",
+                    //InitBalance = 0,
+                    //InitCustomFieldValue1 = "0",
                     // 初始等级
-                    // 铜牌、银牌、黄金、铂金、钻石、至尊
-                    InitCustomFieldValue2 = "铜牌会员",
+                    InitCustomFieldValue2 = "查看",
                     // 优惠券
                     InitCustomFieldValue3 = "查看"
                 };
-
                 string requestBody = JsonConvert.SerializeObject(req);
-
                 LogHelper.Info("6.1 接口激活 requestBody", requestBody);
-
                 string responseBody = HttpHelper.Post(url, requestBody);
-
                 LogHelper.Info("6.1 接口激活 responseBody", responseBody);
-
                 MemberCardActivateResp resp = JsonConvert.DeserializeObject<MemberCardActivateResp>(responseBody);
                 if (resp.ErrCode == 0)
                 {
@@ -70,6 +75,28 @@ namespace BLL_9H
                 LogHelper.Error(ex);
                 return JsonConvert.SerializeObject(new RESTfulModel() { Code = (int)CodeEnum.系统异常, Msg = codeMsgDAL.GetByCode((int)CodeEnum.系统异常) });
             }
+        }
+
+        private bool DecryptCode(string authorizerAccessToken, string encryptCode, out string code)
+        {
+            code = string.Empty;
+            string url = "https://api.weixin.qq.com/card/code/decrypt?access_token=" + authorizerAccessToken;
+            LogHelper.Info("2.2 Code解码接口 url", url);
+            CardCodeDecryptReq req = new CardCodeDecryptReq()
+            {
+                EncryptCode = encryptCode
+            };
+            string requestBody = JsonConvert.SerializeObject(req);
+            LogHelper.Info("2.2 Code解码接口 requestBody", requestBody);
+            string responseBody = HttpHelper.Post(url, requestBody);
+            LogHelper.Info("2.2 Code解码接口 responseBody", responseBody);
+            CardCodeDecryptResp resp = JsonConvert.DeserializeObject<CardCodeDecryptResp>(responseBody);
+            if (resp.ErrCode == 0)
+            {
+                code = resp.Code;
+                return true;
+            }
+            return false;
         }
     }
 }

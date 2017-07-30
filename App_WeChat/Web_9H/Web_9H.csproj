@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common.css" />
+    <Content Include="css\icon.css" />
     <Content Include="css\utility.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="img\membercard.png" />
@@ -165,6 +166,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\EntityShop\Details.cshtml" />
     <Content Include="Views\MemberCard\Index.cshtml" />
+    <Content Include="Views\MemberCard\Activate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

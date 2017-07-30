@@ -1,0 +1,100 @@
+﻿@model Model_9H.MemberCardActivateModel
+@{
+    ViewBag.Title = "激活会员卡";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page">
+    <div class="page-hd">
+
+    </div>
+
+    <div class="page-bd">
+        @using (Ajax.BeginForm("activate", "membercard", null, new AjaxOptions() { HttpMethod = "Post", OnBegin = "beginCall", OnSuccess = "successCall" }, new { }))
+        {
+            <div class="mt-cells-title">必填信息</div>
+            <div class="mt-cells">
+
+                <div class="mt-cell">
+                    <div class="mt-cell-hd">
+                        <label class="mt-label">手机号</label>
+                    </div>
+                    <div class="mt-cell-bd">
+                        <input class="mt-input" name="mobile" type="text" value="" placeholder="请输入您的手机号" />
+                    </div>
+                    <div class="mt-cell-ft">
+
+                    </div>
+                </div>
+                <div class="mt-cell">
+                    <div class="mt-cell-hd">
+                        <label class="mt-label">姓名</label>
+                    </div>
+                    <div class="mt-cell-bd">
+                        <input class="mt-input" name="realname" type="text" value="" placeholder="请输入您的姓名" />
+                    </div>
+                    <div class="mt-cell-ft">
+
+                    </div>
+                </div>
+                <div class="mt-cell">
+                    <div class="mt-cell-hd">
+                        <label class="mt-label">性别</label>
+                    </div>
+                    <div class="mt-cell-bd">
+                        <select class="mt-select" name="gender">
+                            <option value="0">请选择</option>
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
+                    </div>
+                    <div class="mt-cell-ft">
+                        <i class="mt-icon mt-icon-angle-right"></i>
+                    </div>
+                </div>
+                <div class="mt-cell">
+                    <div class="mt-cell-hd">
+                        <label class="mt-label">生日</label>
+                    </div>
+                    <div class="mt-cell-bd">
+                        <input class="mt-input" name="birthday" type="date" value="" />
+                    </div>
+                    <div class="mt-cell-ft">
+
+                    </div>
+                </div>
+            </div>
+            <label class="mt-agree">
+                <input class="mt-agree-checkbox" name="isOpenReal" type="checkbox" value="" />
+                <span class="mt-agree-text">我已阅读并同意<a href="javascript:;">会员服务声明</a></span>
+            </label>
+            <div class="mt-btns">
+                <input type="hidden" name="cardid" value="@ViewBag.CardID" />
+                <input type="hidden" name="encryptcode" value="@ViewBag.EncryptCode" />
+                <input type="hidden" name="openid" value="@ViewBag.OpenID" />
+                <input class="mt-btn mt-success" type="submit" value="激活" />
+            </div>
+        }
+    </div>
+
+    <div class="page-ft">
+
+    </div>
+</div>
+@section js {
+    <script>
+        function beginCall() {
+
+        }
+
+        function successCall(data) {
+            if (data) {
+                if (data.code == 0) {
+
+                }
+                alert(data.msg);
+            }
+        }
+    </script>
+}
+

@@ -10,7 +10,7 @@ namespace Web_9H.Controllers
 {
     public class BaseController : Controller
     {
-        public string AuthorizerAppID = string.Empty;
+        protected string AuthorizerAppID { get; set; }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -20,16 +20,10 @@ namespace Web_9H.Controllers
 
             string host = request.Url.Host;
 
-            // wxae43212cd9f3ed6e
-            // wxae43212cd9f3ed6e
             Regex regex = new Regex("^([a-z0-9]{18})\\.wx\\.smartyancheng\\.com$", RegexOptions.IgnoreCase);
 
             // 主机头
-            if (true)
-            {
-
-            }
-            else if (ConfigHelper.UniversalHost == host.ToLower())
+            if (ConfigHelper.UniversalHost == host.ToLower())
             {
                 // 授权、分享、消息
                 
