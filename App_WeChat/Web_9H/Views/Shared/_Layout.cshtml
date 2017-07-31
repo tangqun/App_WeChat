@@ -9,10 +9,9 @@
     <meta name="renderer" content="webkit" />
 
     <title>@ViewBag.Title</title>
-    <link href="../../plugins/swiper/css/swiper.css" rel="stylesheet" />
+    @RenderSection("css", false)
 
     <link href="../../css/icon.css" rel="stylesheet" />
-    <link href="../../css/utility.css" rel="stylesheet" />
     <link href="../../css/common.css" rel="stylesheet" />
 </head>
 <body>
@@ -20,7 +19,7 @@
 
     <script src="../../js/flexible.js"></script>
     <script src="../../plugins/jquery/jquery.js"></script>
-    <script src="../../plugins/swiper/js/swiper.jquery.js"></script>
+    
     @RenderSection("js", false)
 </body>
 </html>

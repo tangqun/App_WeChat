@@ -21,7 +21,7 @@ namespace Web_9H.Controllers
             string host = request.Url.Host;
 
             Regex regex = new Regex("^([a-z0-9]{18})\\.wx\\.smartyancheng\\.com$", RegexOptions.IgnoreCase);
-
+            
             // 主机头
             if (ConfigHelper.UniversalHost == host.ToLower())
             {

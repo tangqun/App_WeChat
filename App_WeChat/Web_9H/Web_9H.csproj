@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common.css" />
+    <Content Include="css\del.css" />
     <Content Include="css\icon.css" />
     <Content Include="css\utility.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -109,15 +110,13 @@
     <Content Include="plugins\swiper\js\swiper.jquery.umd.min.js" />
     <Content Include="plugins\swiper\js\swiper.js" />
     <Content Include="plugins\swiper\js\swiper.min.js" />
-    <Content Include="plugins\weui\css\utility.css" />
-    <Content Include="plugins\weui\css\weui-cell.css" />
-    <Content Include="plugins\weui\css\weui.css" />
     <Content Include="Global.asax" />
     <Content Include="js\flexible.js" />
-    <Content Include="plugins\weui\css\weui-icon.css" />
     <Content Include="plugins\jquery\jquery.js" />
     <Content Include="plugins\jquery\jquery.min.js" />
     <Content Include="plugins\jquery\jquery.min.map" />
+    <Content Include="plugins\weui\css\weui.css" />
+    <Content Include="plugins\weui\css\weui.min.css" />
     <Content Include="plugins\weui\js\weui.js" />
     <Content Include="plugins\weui\js\weui.min.js" />
     <Content Include="Web.config" />
@@ -167,6 +166,7 @@
     <Content Include="Views\EntityShop\Details.cshtml" />
     <Content Include="Views\MemberCard\Index.cshtml" />
     <Content Include="Views\MemberCard\Activate.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

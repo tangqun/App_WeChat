@@ -8,6 +8,7 @@
           box-sizing: border-box;
 }
 a {
+  color: inherit;
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -28,12 +29,134 @@ body {
 }
 body {
   position: relative;
-  font-family: -apple-system-font,"Helvetica Neue",sans-serif;
+  font-family: -apple-system-font, "Helvetica Neue", sans-serif;
   font-weight: normal;
   font-size: .32rem;
   line-height: 1.5;
   color: #333333;
   background: #f8f8f8;
+}
+/* ==========================================================================
+   Component: Cell
+ ============================================================================ */
+.mt-cells {
+  display: block;
+  position: relative;
+  margin-top: .3rem;
+  background-color: #ffffff;
+}
+.mt-cells:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  border-top: .02rem solid #e5e5e5;
+  content: " ";
+}
+.mt-cells:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  border-bottom: .02rem solid #e5e5e5;
+  content: " ";
+}
+.mt-cells-title {
+  display: block;
+  padding: .3rem;
+}
+.mt-cells-title + .mt-cells {
+    margin-top: 0;
+}
+.mt-cell {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-box-align: center;
+        align-items: center;
+  position: relative;
+  padding: .3rem;
+}
+.mt-cell:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: .3rem;
+  z-index: 2;
+  border-top: .02rem solid #e5e5e5;
+  content: " ";
+}
+.mt-cell:first-child:before {
+  display: none;
+}
+.mt-cell-bd {
+  -webkit-box-flex: 1;
+      -webkit-flex: 1;
+              flex: 1;
+}
+.mt-cell-ft {
+  text-align: right;
+}
+.mt-cells-checkbox {
+  display: block;
+  font-size: .32rem;
+  vertical-align: middle;
+  width: .24rem;
+  height: .24rem;
+}
+/* ==========================================================================
+   Component: Agree
+ ============================================================================ */
+.mt-agree {
+    display: block;
+    padding: .15rem .3rem;
+    font-size: .24rem;
+}
+.mt-agree-checkbox {
+    position: relative;
+    top: .04rem;
+    border: .02rem solid #d1d1d1;
+    width: .26rem;
+    height: .26rem;
+    font-size: 0;
+    background-color: #ffffff;
+    outline: 0;
+    -webkit-appearance: none;
+}
+.mt-agree-checkbox:checked:before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font: normal normal normal .26rem/1 FontAwesome;
+    color: #09bb07;
+    content: "\f00c";
+}
+.mt-agree-text a {
+    color: #586c94;
+}
+/* ==========================================================================
+   Component: Label
+ ============================================================================ */
+.mt-label {
+    display: block;
+    width: 2rem;
+}
+/* ==========================================================================
+   Component: Input
+ ============================================================================ */
+.mt-input {
+    border: 0;
+    font-size: inherit;
+    width: 100%;
+    height: .48rem;
+    line-height: 1.5;
+    background-color: transparent;
+    outline: 0;
+    -webkit-appearance: none;
 }
 /* ==========================================================================
    Component: Icon
@@ -70,218 +193,6 @@ body {
   width: 1.2em;
   text-align: center;
 }
-
-/* ==========================================================================
-   Component: Button
- ============================================================================ */
-.mt-btn {
-  display: block;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  padding: .3rem;
-  border-radius: .1rem;
-  width: 100%;
-  font-size: inherit;
-  text-align: center;
-  color: #ffffff;
-}
-.mt-btn.mt-success {
-    background-color: #09bb07;
-}
-.mt-btn.mt-success:active {
-    background-color: #179B16;
-}
-.mt-btn.mt-plain-success {
-    border: .02rem solid #09bb07;
-    color: #09bb07;
-    background-color: #ffffff;
-}
-.mt-btn.mt-plain-success:active {
-    color: #ffffff;
-    background-color: #09bb07;
-}
-.mt-btns {
-    margin-top: .15rem;
-    padding: .15rem .3rem;
-}
-/* ==========================================================================
-   Component: Cell
- ============================================================================ */
-.mt-cells-title {
-    padding: .3rem;
-}
-.mt-cells-title + .mt-cells {
-    margin-top: 0;
-}
-.mt-cells {
-  position: relative;
-  margin-top: .3rem;
-  border-width: .02rem 0;
-  border-style: solid;
-  border-color: #e5e5e5;
-  background-color: #ffffff;
-}
-.mt-cell {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  position: relative;
-  margin-left: .3rem;
-  padding: .3rem .3rem .3rem 0;
-  border-top: .01rem solid #e5e5e5;
-}
-.mt-cell:first-child {
-  border-top: none;
-}
-.mt-cell-bd {
-  -webkit-box-flex: 1;
-      -webkit-flex: 1;
-              flex: 1;
-}
-.mt-cell-ft {
-  text-align: right;
-}
-/* ==========================================================================
-   Component: Agree
- ============================================================================ */
-.mt-agree {
-    display: block;
-    padding: .15rem .3rem;
-    font-size: .24rem;
-}
-.mt-agree-checkbox {
-    position: relative;
-    top: .04rem;
-    border: .02rem solid #d1d1d1;
-    width: .24rem;
-    height: .24rem;
-    font-size: 0;
-    background-color: #ffffff;
-    outline: 0;
-    -webkit-appearance: none;
-}
-.mt-agree-checkbox:checked:before {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    font: normal normal normal .24rem/1 FontAwesome;
-    color: #09bb07;
-    content: "\f00c";
-}
-.mt-agree a {
-    color: #586c94;
-}
-/* ==========================================================================
-   Component: Label
- ============================================================================ */
-.mt-label {
-    display: block;
-    width: 2rem;
-}
-.mt-label2 {
-    display: block;
-    width: 3rem;
-}
-/* ==========================================================================
-   Component: Input
- ============================================================================ */
-.mt-input {
-    border: 0;
-    font-size: inherit;
-    width: 100%;
-    height: .48rem;
-    line-height: 1.5;
-    background-color: transparent;
-    outline: 0;
-    -webkit-appearance: none;
-}
-.mt-checkbox {
-    border: .02rem solid #d1d1d1;
-    width: .24rem;
-    height: .24rem;
-    background-color: #ffffff;
-    outline: 0;
-}
-/* ==========================================================================
-   Component: Select
- ============================================================================ */
-.mt-select {
-    position: relative;
-    border: 0;
-    width: 100%;
-    font-size: inherit;
-    background-color: transparent;
-    outline: 0;
-    -webkit-appearance: none;
-}
-/* ==========================================================================
-   Component: Flex
- ============================================================================ */
-.mt-flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.mt-flex-item {
-  -webkit-box-flex: 1;
-      -webkit-flex: 1;
-              flex: 1;
-}
-/* ==========================================================================
-   Component: Utility
- ============================================================================ */
-/* Text color helper */
-.mt-text-success {
-  color: #09bb07;
-}
-.mt-text-info {
-  color: #10aeff;
-}
-.mt-text-warning {
-  color: #ffbe00;
-}
-.mt-text-danger {
-  color: #f43530;
-}
-.mt-text-disabled {
-  color: #c9c9c9;
-}
-.mt-text-primary {
-  color: #ffffff;
-}
-.mt-text-left {
-    text-align: left;
-}
-.mt-text-right {
-    text-align: right;
-}
-/* Text size helper */
-/*.mt-text-d2x {
-  font-size: 1.2em;
-}
-.mt-text-d4x {
-  font-size: 1.4em;
-}
-.mt-text-d6x {
-  font-size: 1.6em;
-}
-.mt-text-d8x {
-  font-size: 1.8em;
-}
-.mt-text-bold {
-  font-weight: 700;
-}
-.mt-fl {
-    float: left;
-}
-.mt-fr {
-    float: right;
-}*/
 /* ==========================================================================
    Component: Fix
  ============================================================================ */
