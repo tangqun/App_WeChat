@@ -1,11 +1,10 @@
 ﻿*,
 *:before,
 *:after {
-  margin: 0;
-  padding: 0;
-  border: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 a {
   color: inherit;
@@ -16,7 +15,8 @@ a:active {
   background-color: #ececec;
 }
 img {
-  display: block;
+  vertical-align: middle;
+  border: 0;
 }
 html {
   -webkit-text-size-adjust: 100%;
@@ -36,128 +36,7 @@ body {
   color: #333333;
   background: #f8f8f8;
 }
-/* ==========================================================================
-   Component: Cell
- ============================================================================ */
-.mt-cells {
-  display: block;
-  position: relative;
-  margin-top: .3rem;
-  background-color: #ffffff;
-}
-.mt-cells:before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 2;
-  border-top: .02rem solid #e5e5e5;
-  content: " ";
-}
-.mt-cells:after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  border-bottom: .02rem solid #e5e5e5;
-  content: " ";
-}
-.mt-cells-title {
-  display: block;
-  padding: .3rem;
-}
-.mt-cells-title + .mt-cells {
-    margin-top: 0;
-}
-.mt-cell {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-box-align: center;
-        align-items: center;
-  position: relative;
-  padding: .3rem;
-}
-.mt-cell:before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: .3rem;
-  z-index: 2;
-  border-top: .02rem solid #e5e5e5;
-  content: " ";
-}
-.mt-cell:first-child:before {
-  display: none;
-}
-.mt-cell-bd {
-  -webkit-box-flex: 1;
-      -webkit-flex: 1;
-              flex: 1;
-}
-.mt-cell-ft {
-  text-align: right;
-}
-.mt-cells-checkbox {
-  display: block;
-  font-size: .32rem;
-  vertical-align: middle;
-  width: .24rem;
-  height: .24rem;
-}
-/* ==========================================================================
-   Component: Agree
- ============================================================================ */
-.mt-agree {
-    display: block;
-    padding: .15rem .3rem;
-    font-size: .24rem;
-}
-.mt-agree-checkbox {
-    position: relative;
-    top: .04rem;
-    border: .02rem solid #d1d1d1;
-    width: .26rem;
-    height: .26rem;
-    font-size: 0;
-    background-color: #ffffff;
-    outline: 0;
-    -webkit-appearance: none;
-}
-.mt-agree-checkbox:checked:before {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    font: normal normal normal .26rem/1 FontAwesome;
-    color: #09bb07;
-    content: "\f00c";
-}
-.mt-agree-text a {
-    color: #586c94;
-}
-/* ==========================================================================
-   Component: Label
- ============================================================================ */
-.mt-label {
-    display: block;
-    width: 2rem;
-}
-/* ==========================================================================
-   Component: Input
- ============================================================================ */
-.mt-input {
-    border: 0;
-    font-size: inherit;
-    width: 100%;
-    height: .48rem;
-    line-height: 1.5;
-    background-color: transparent;
-    outline: 0;
-    -webkit-appearance: none;
-}
+
 /* ==========================================================================
    Component: Icon
  ============================================================================ */
