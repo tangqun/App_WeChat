@@ -8,6 +8,10 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 a {
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -37,12 +41,12 @@ body {
 /* ==========================================================================
    Component: Flex
  ============================================================================ */
-.mt-flex {
+.flex {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.mt-flex-item {
+.flex-item {
   -webkit-box-flex: 1;
       -webkit-flex: 1;
               flex: 1;
@@ -50,33 +54,169 @@ body {
 /* ==========================================================================
    Component: List
  ============================================================================ */
-.mt-list {
-  
+.list {
+
 }
-.mt-list-title {
+.list-hd {
+  display: block;
   padding: .2rem .3rem;
 }
-.mt-list-bd {
+.list-bd {
+  margin-top: .3rem;
   border-width: .02rem 0;
   border-style: solid;
   border-color: #c5c5c5;
   background-color: #ffffff;
 }
-.mt-list-item {
+.list-hd + .list-bd {
+  margin-top: 0;
+}
+.list-item {
   margin-left: .3rem;
   padding: .3rem .3rem .3rem 0;
   border-top: .02rem solid #c5c5c5;
 }
-.mt-list-item:first-child {
-  border-top: none;
+.list-item:first-child {
+  border-top: 0;
+}
+.list-item-switch {
+  padding-top: .22rem;
+  padding-bottom: .22rem;
+}
+.list-item-switch.flex {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.list-item-select {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+.list-item-select.flex {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/* ==========================================================================
+   Component: Switch
+ ============================================================================ */
+.switch {
+  display: block;
+  position: relative;
+  border: .02rem solid #c5c5c5;
+  border-radius: .32rem;
+  width: 1.28rem;
+  height: .64rem;
+  background-color: #fdfdfd;
+  outline: 0;
+  -webkit-transition: background-color 0.1s, border 0.1s;
+  transition: background-color 0.1s, border 0.1s;
+  -webkit-appearance: none;
+}
+.switch:before {
+  position: absolute;
+  border-radius: 50%;
+  width: .60rem;
+  height: .60rem;
+  background-color: #ffffff;
+  content: " ";
+  box-shadow: 0 .02rem .06rem #666666;
+  -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
+  transition: transform 0.35s cubic-bezier(0.4, 0.4, 0.25, 1.35); 
+}
+.switch:checked {
+  border-color: #04be02;
+  background-color: #04be02;
+}
+.switch:checked:before {
+  transform: translateX(.64rem);
+}
+.switch:disabled {
+  opacity: .5;
+}
+/* ==========================================================================
+   Component: Button
+ ============================================================================ */
+.btn-area {
+  margin: .3rem;
+}
+.btn {
+  display: block;
+  padding: .3rem;
+  border-radius: .1rem;
+  width: 100%;
+  font-size: .32rem;
+  line-height: inherit;
+  text-align: center;
+}
+.btn.btn-success {
+  color: #ffffff;
+  background-color: #1aad19;
+}
+/* ==========================================================================
+   Component: Utility
+ ============================================================================ */
+.text-align-right {
+  text-align: right;
+}
+.input {
+  display: block;
+  width: 100%;
+  font-size: inherit;
+  line-height: inherit;
+  outline: 0;
+  -webkit-appearance: none;
+}
+.input.date {
+  line-height: 1;
+}
+.input.date::-webkit-clear-button
+{
+  visibility: hidden;
+}
+.checkbox {
+  width: .26rem;
+  height: .26rem;
+}
+.select {
+  display: block;
+  width: 100%;
+  height: 1.08rem;
+  line-height: 1.08rem;
+  font-size: inherit;
+  outline: 0;
+  -webkit-appearance: none;
+}
+.inline-block {
+  display: inline-block;
+}
+.block {
+  display: block;
+}
+.width-x {
+  width: 1rem;
+}
+.width-2x {
+  width: 2rem;
+}
+.margin-left-x1 {
+  margin-left: .1rem;
+}
+.margin-left-x2 {
+  margin-left: .2rem;
+}
+.margin-left-x3 {
+  margin-left: .3rem;
 }
 /* ==========================================================================
    Component: Fix
  ============================================================================ */
 .swiper-slide {
-  line-height: 1;
+  
 }
 .swiper-slide img{
+  display: block;
   width:100%;
 }
 /* ==========================================================================
@@ -90,7 +230,8 @@ body {
   padding: .3rem;
 }
 .entityshop-details-face-logo > img {
-    width: 1.8rem
+  display: block;
+  width: 1.6rem
 }
 .entityshop-details-face-text {
     margin-left: .3rem;
