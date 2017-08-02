@@ -15,6 +15,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-3x {
+    font-size: 3em;
+}
 .icon-glass:before {
   content: "\f000";
 }

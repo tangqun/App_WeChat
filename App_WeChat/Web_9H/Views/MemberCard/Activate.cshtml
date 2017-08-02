@@ -7,6 +7,78 @@
 @using (Ajax.BeginForm("activate", "membercard", null, new AjaxOptions() { HttpMethod = "Post", OnBegin = "beginCall", OnSuccess = "successCall" }, new { }))
 {
 }
+<div class="page">
+    <div class="page-hd">
+
+    </div>
+
+    <div class="page-bd">
+
+        <div class="list">
+            <div class="list-hd">
+                必填信息
+            </div>
+            <div class="list-bd">
+                <div class="flex list-item">
+                    <div class="list-item-hd">
+                        <label class="inline-block width-2x">手机号</label>
+                    </div>
+                    <div class="flex-item list-item-bd">
+                        <input class="input" name="mobile" type="number" value="" placeholder="请输入您的手机号" />
+                    </div>
+                    <div class="list-item-ft">
+
+                    </div>
+                </div>
+                <div class="flex list-item">
+                    <div class="list-item-hd">
+                        <label class="inline-block width-2x">姓名</label>
+                    </div>
+                    <div class="flex-item list-item-bd">
+                        <input class="input" name="realname" type="text" value="" placeholder="请输入您的姓名" />
+                    </div>
+                    <div class="list-item-ft">
+
+                    </div>
+                </div>
+                <div class="flex list-item list-item-select">
+                    <div class="list-item-hd">
+                        <label class="inline-block width-2x">性别</label>
+                    </div>
+                    <div class="flex-item list-item-bd">
+                        <select class="select" name="gender">
+                            <option value="0">请选择</option>
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
+                    </div>
+                    <div class="list-item-ft">
+
+                    </div>
+                </div>
+                <div class="flex list-item">
+                    <div class="list-item-hd">
+                        <label class="inline-block width-2x">生日</label>
+                    </div>
+                    <div class="flex-item list-item-bd">
+                        <input class="input date" name="birthday" type="date" value="" />
+                    </div>
+                    <div class="list-item-ft">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-area">
+            <input class="btn btn-success" type="button" value="确认提交" />
+        </div>
+    </div>
+
+    <div class="page-ft">
+
+    </div>
+</div>
 
 @section js {
     <script>

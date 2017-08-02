@@ -8,6 +8,9 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+img {
+    display: block;
+}
 p {
   margin-top: 0;
   margin-bottom: 0;
@@ -181,6 +184,7 @@ body {
 }
 .select {
   display: block;
+  position: relative;
   width: 100%;
   height: 1.08rem;
   line-height: 1.08rem;
@@ -216,7 +220,6 @@ body {
   
 }
 .swiper-slide img{
-  display: block;
   width:100%;
 }
 /* ==========================================================================
@@ -224,13 +227,18 @@ body {
  ============================================================================ */
 /* EntityShop details */
 .entityshop-details-face {
+    position: relative;
+}
+.entityshop-details-face-hd {
+  position: relative;
+}
+.entityshop-details-face-region {
   position: absolute; 
   top: 2rem; 
   z-index: 999;
   padding: .3rem;
 }
 .entityshop-details-face-logo > img {
-  display: block;
   width: 1.6rem
 }
 .entityshop-details-face-text {
@@ -255,7 +263,7 @@ body {
 .card-face-hd > img {
   width: 100%;
 }
-.card-face-info {
+.card-face-region {
   position: absolute; 
   top: .3rem; 
   left: .3rem;
@@ -300,16 +308,17 @@ body {
   right: .3rem;
   bottom: .3rem;
   z-index: 999;
+  color: #c5c5c5;
 }
 .card-face-bd {
   margin-top: .3rem;
   text-align: center;
   background-color: #ffffff;
 }
-.card-face-bd > .mt-flex-item {
+.card-face-bd > .flex-item {
   border-left: .02rem solid #c5c5c5;
 }
-.card-face-bd > .mt-flex-item:first-child {
+.card-face-bd > .flex-item:first-child {
   border-left: 0;
 }
 .card-face-ft {
@@ -331,11 +340,11 @@ body {
 .card-service:first-child {
   border-top: none;
 }
-.card-service .mt-flex-item {
+.card-service .flex-item {
   border-left: .02rem solid #c5c5c5;
   padding: .3rem;
   text-align: center;
 }
-.card-service .mt-flex-item:first-child {
+.card-service .flex-item:first-child {
     border-left: none;
 }
