@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelSerializeTest", "Model
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternTest", "PatternTest\PatternTest.csproj", "{247E357D-5DE8-46CF-95C9-00A9009C7FAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeserializeModelTest", "DeserializeModelTest\DeserializeModelTest.csproj", "{FA427D34-A283-475D-9CEB-9AC51D21EF47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{247E357D-5DE8-46CF-95C9-00A9009C7FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{247E357D-5DE8-46CF-95C9-00A9009C7FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{247E357D-5DE8-46CF-95C9-00A9009C7FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA427D34-A283-475D-9CEB-9AC51D21EF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA427D34-A283-475D-9CEB-9AC51D21EF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA427D34-A283-475D-9CEB-9AC51D21EF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA427D34-A283-475D-9CEB-9AC51D21EF47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,5 +92,6 @@ Global
 		{DB0CE66F-8FE1-4A65-9208-8E9ADADC5498} = {24FD77C5-26F9-4007-B0AC-1B65D089C653}
 		{42E91E73-F4BC-4AF0-887D-31107D982AB3} = {24FD77C5-26F9-4007-B0AC-1B65D089C653}
 		{247E357D-5DE8-46CF-95C9-00A9009C7FAB} = {24FD77C5-26F9-4007-B0AC-1B65D089C653}
+		{FA427D34-A283-475D-9CEB-9AC51D21EF47} = {24FD77C5-26F9-4007-B0AC-1B65D089C653}
 	EndGlobalSection
 EndGlobal

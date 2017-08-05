@@ -95,6 +95,7 @@
     <Content Include="css\utility.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="img\membercard.png" />
+    <Content Include="js\additional-methods.js" />
     <Content Include="js\test.js" />
     <Content Include="plugins\font-awesome\css\font-awesome.css" />
     <Content Include="plugins\font-awesome\css\font-awesome.min.css" />
@@ -102,6 +103,13 @@
     <Content Include="plugins\ionicons\css\ionicons.css" />
     <Content Include="plugins\ionicons\css\ionicons.min.css" />
     <Content Include="plugins\ionicons\fonts\ionicons.svg" />
+    <Content Include="plugins\jquery-ajax-unobtrusive\jquery.unobtrusive-ajax.js" />
+    <Content Include="plugins\jquery-ajax-unobtrusive\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="plugins\jquery.validate\additional-methods.js" />
+    <Content Include="plugins\jquery.validate\additional-methods.min.js" />
+    <Content Include="plugins\jquery.validate\jquery.validate.js" />
+    <Content Include="plugins\jquery.validate\jquery.validate.min.js" />
+    <Content Include="plugins\jquery.validate\messages_zh.js" />
     <Content Include="plugins\swiper\css\swiper.css" />
     <Content Include="plugins\swiper\css\swiper.min.css" />
     <Content Include="plugins\swiper\js\swiper.jquery.js" />

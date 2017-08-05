@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model_9H
 {
+    /// <summary>
+    /// 激活会员卡
+    /// </summary>
     public class MemberCardActivateModel
     {
         public string Mobile { get; set; }
