@@ -10,6 +10,6 @@ namespace IBLL_9H
     public interface IConfigBLL
     {
         RESTfulModel GetJSAPIConfig(string authorizerAppID, string url);
-        RESTfulModel GetAPIConfig(string authorizerAppID);
+        RESTfulModel GetAPIConfig(string authorizerAppID, string cardID);
     }
 }

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigBLL.cs" />
+    <Compile Include="MemberInfoBLL.cs" />
     <Compile Include="OAuth2BLL.cs" />
     <Compile Include="CardBLL.cs" />
     <Compile Include="MemberCardBLL.cs" />

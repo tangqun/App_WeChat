@@ -22,7 +22,7 @@ namespace Web_9H.Controllers
             if (string.IsNullOrEmpty(code))
             {
                 // 用户取消了授权
-                return View();
+                return Redirect("/error/canceloauth2");
             }
             else
             {
@@ -35,7 +35,8 @@ namespace Web_9H.Controllers
                 }
                 else
                 {
-                    return View();
+                    // 授权失败
+                    return Redirect("/error/oauth2failed");
                 }
             }
         }

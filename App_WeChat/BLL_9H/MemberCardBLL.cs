@@ -17,8 +17,10 @@ namespace BLL_9H
         private ICodeMsgDAL codeMsgDAL = new CodeMsgDAL();
         private IAccessTokenDAL accessTokenDAL = new AccessTokenDAL();
         private IAuthorizerInfoDAL authorizerInfoDAL = new AuthorizerInfoDAL();
+        private ICardInfoDAL cardInfoDAL = new CardInfoDAL();
 
-        public MemberCardModel GetModel(string authorizerAppID, string openID, string cardID)
+        // 卡面
+        public MemberCardModel GetModel(string authorizerAppID)
         {
             try
             {
@@ -26,31 +28,47 @@ namespace BLL_9H
                 string authorizerAccessToken = authorizationInfoModel.AuthorizerAccessToken;
                 LogHelper.Info("8.6.4 查看卡券详情 authorizerAccessToken", authorizerAccessToken);
 
-                string url = "https://api.weixin.qq.com/card/user/getcardlist?access_token=" + authorizerAccessToken;
-                LogHelper.Info("2 获取用户已领取卡券接口 url", url);
-                CardListGetReq req = new CardListGetReq()
+                // 可以删除
+                //string url = "https://api.weixin.qq.com/card/user/getcardlist?access_token=" + authorizerAccessToken;
+                //LogHelper.Info("2 获取用户已领取卡券接口 url", url);
+                //CardListGetReq req = new CardListGetReq()
+                //{
+                //    OpenID = openID, 
+                //    CardID = cardID
+                //};
+                //string requestBody = JsonConvert.SerializeObject(req);
+                //LogHelper.Info("2 获取用户已领取卡券接口 requestBody", requestBody);
+                //string responseBody = HttpHelper.Post(url, requestBody);
+                //LogHelper.Info("2 获取用户已领取卡券接口 responseBody", responseBody);
+                //CardListGetResp resp = JsonConvert.DeserializeObject<CardListGetResp>(responseBody);
+
+                CardInfoModel cardInfoModel = cardInfoDAL.GetModel(authorizerAppID);
+                if (cardInfoModel == null)
                 {
-                    OpenID = openID, 
-                    CardID = cardID
+                    // 未创建会员卡
+                }
+
+                // 会员卡信息，建议先保存微信服务器，然后保存本地服务器，修改同理，这里可以从本地服务器查询
+                string url = "https://api.weixin.qq.com/card/get?access_token=" + authorizerAccessToken;
+                LogHelper.Info("8.6.4 查看卡券详情 url", url);
+                CardGetReq req = new CardGetReq()
+                {
+                    CardID = cardInfoModel.CardID
                 };
                 string requestBody = JsonConvert.SerializeObject(req);
-                LogHelper.Info("2 获取用户已领取卡券接口 requestBody", requestBody);
+                LogHelper.Info("8.6.4 查看卡券详情 requestBody", requestBody);
                 string responseBody = HttpHelper.Post(url, requestBody);
-                LogHelper.Info("2 获取用户已领取卡券接口 responseBody", responseBody);
-                CardListGetResp resp = JsonConvert.DeserializeObject<CardListGetResp>(responseBody);
-
-                MemberInfoGetResp resp2 = GetMemberInfo(authorizerAccessToken, cardID, resp.CardList[0].Code);
-
-                CardGetResp resp3 = GetCard(authorizerAccessToken, cardID);
-
-                var memberCard = resp3.Card.MemberCard;
-                return new MemberCardModel() {
+                LogHelper.Info("8.6.4 查看卡券详情 responseBody", responseBody);
+                CardGetResp resp = JsonConvert.DeserializeObject<CardGetResp>(responseBody);
+                
+                var memberCard = resp.Card.MemberCard;
+                return new MemberCardModel()
+                {
+                    CardID = cardInfoModel.CardID,
                     BackgroundPicUrl = memberCard.BackgroundPicUrl,
                     LogoUrl = memberCard.BaseInfo.LogoUrl,
                     BrandName = memberCard.BaseInfo.BrandName,
-                    Title = memberCard.BaseInfo.Title,
-                    MembershipNumber = resp2.MembershipNumber,
-                    Bonus = resp2.Bonus
+                    Title = memberCard.BaseInfo.Title
                 };
             }
             catch (Exception ex)
@@ -62,6 +80,7 @@ namespace BLL_9H
 
         private static MemberInfoGetResp GetMemberInfo(string authorizerAccessToken, string cardID, string code)
         {
+            // 会员信息
             string url = "https://api.weixin.qq.com/card/membercard/userinfo/get?access_token=" + authorizerAccessToken;
             LogHelper.Info("8.1 拉取会员信息（积分查询）接口 url", url);
             MemberInfoGetReq req = new MemberInfoGetReq()
@@ -74,22 +93,6 @@ namespace BLL_9H
             string responseBody = HttpHelper.Post(url, requestBody);
             LogHelper.Info("8.1 拉取会员信息（积分查询）接口 responseBody", responseBody);
             MemberInfoGetResp resp = JsonConvert.DeserializeObject<MemberInfoGetResp>(responseBody);
-            return resp;
-        }
-
-        private static CardGetResp GetCard(string authorizerAccessToken, string cardID)
-        {
-            string url = "https://api.weixin.qq.com/card/get?access_token=" + authorizerAccessToken;
-            LogHelper.Info("8.6.4 查看卡券详情 url", url);
-            CardGetReq req = new CardGetReq()
-            {
-                CardID = cardID
-            };
-            string requestBody = JsonConvert.SerializeObject(req);
-            LogHelper.Info("8.6.4 查看卡券详情 requestBody", requestBody);
-            string responseBody = HttpHelper.Post(url, requestBody);
-            LogHelper.Info("8.6.4 查看卡券详情 responseBody", responseBody);
-            CardGetResp resp = JsonConvert.DeserializeObject<CardGetResp>(responseBody);
             return resp;
         }
 
@@ -122,9 +125,9 @@ namespace BLL_9H
                     //InitBonusRecord = "",
                     //InitBalance = 0,
                     //InitCustomFieldValue1 = "0",
-                    // 初始等级
-                    InitCustomFieldValue2 = "查看",
                     // 优惠券
+                    InitCustomFieldValue2 = "查看",
+                    // 初始等级
                     InitCustomFieldValue3 = "查看"
                 };
                 string requestBody = JsonConvert.SerializeObject(req);
@@ -134,6 +137,7 @@ namespace BLL_9H
                 MemberCardActivateResp resp = JsonConvert.DeserializeObject<MemberCardActivateResp>(responseBody);
                 if (resp.ErrCode == 0)
                 {
+                    // 保存 AuthorizerAppID、CardID、Code之间的关系
                     return JsonConvert.SerializeObject(new RESTfulModel() { Code = (int)CodeEnum.成功, Msg = string.Format(codeMsgDAL.GetByCode((int)CodeEnum.成功), "激活成功") });
                 }
                 else

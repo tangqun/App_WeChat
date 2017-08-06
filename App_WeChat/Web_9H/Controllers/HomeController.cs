@@ -29,9 +29,9 @@ namespace Web_9H.Controllers
             return Content(configBLL.GetJSAPIConfig(authorizerAppID, url).ToString(), "application/json");
         }
 
-        public ActionResult GetAPIConfig(string authorizerAppID)
+        public ActionResult GetAPIConfig(string authorizerAppID, string cardID)
         {
-            return Content(configBLL.GetAPIConfig(authorizerAppID).ToString(), "application/json");
+            return Content(configBLL.GetAPIConfig(authorizerAppID, cardID).ToString(), "application/json");
         }
     }
 }

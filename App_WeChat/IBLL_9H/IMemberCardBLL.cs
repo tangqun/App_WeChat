@@ -9,7 +9,7 @@ namespace IBLL_9H
 {
     public interface IMemberCardBLL
     {
-        MemberCardModel GetModel(string authorizerAppID, string openID, string cardID);
+        MemberCardModel GetModel(string authorizerAppID);
 
         /// <summary>
         /// 手机号显示在卡面上，Code用腾讯生成的

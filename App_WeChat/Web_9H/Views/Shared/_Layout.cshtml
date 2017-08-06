@@ -20,6 +20,45 @@
     <script src="../../js/flexible.js"></script>
     <script src="../../plugins/jquery/jquery.js"></script>
     
+    <script>
+        $(function () {
+            var url = (location.href.split('#'))[0].toString();
+            url = encodeURIComponent(url);
+
+            var config = {
+                debug: false,
+                appId: '@ViewBag.AuthorizerAppID',
+                timestamp: '',
+                nonceStr: '',
+                signature: '',
+                jsApiList: ['openCard', 'addCard', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone', 'openAddress', 'chooseWXPay']
+            };
+
+            $.ajax({
+                url: '/home/getjsapiconfig?authorizerappid=' + '@ViewBag.AuthorizerAppID' + '&url=' + url,
+                type: 'get',
+                async: !1,
+                dataType: 'json',
+                success: function (data) {
+                    if (data) {
+                        if (data.code == 0) {
+                            var configData = data.data;
+                            config.timestamp = configData.timestamp,
+                            config.nonceStr = configData.nonceStr,
+                            config.signature = configData.signature
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                },
+                error: function () {
+                    console && console.log('签名失败')
+                }
+            });
+
+            wx.config(config);
+        })
+    </script>
     @RenderSection("js", false)
 </body>
 </html>

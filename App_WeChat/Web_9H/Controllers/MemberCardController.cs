@@ -13,31 +13,45 @@ namespace Web_9H.Controllers
     {
         private IOAuth2BLL oauth2BLL = new OAuth2BLL();
         private IMemberCardBLL memberCardBLL = new MemberCardBLL();
+        private IMemberInfoBLL memberInfoBLL = new MemberInfoBLL();
 
         /// <summary>
         /// 会员卡主页
         /// </summary>
         public ActionResult Index(string code, string state, string appID)
         {
-            //if (string.IsNullOrEmpty(code))
-            //{
-            //    // 用户取消了授权
-            //    return View();
-            //}
-            //else
-            //{
-            //    RESTfulModel resp = oauth2BLL.GetAuth(appID, code, state);
-            //    if (resp.Code == 0)
-            //    {
-            //        ViewBag.OpenID = resp.Data;
-            //        return View();
-            //    }
-            //    else
-            //    {
-            //        return View();
-            //    }
-            //}
-            return View();
+            if (string.IsNullOrEmpty(code))
+            {
+                // 用户取消了授权
+                return Redirect("/error/canceloauth2");
+            }
+            else
+            {
+                //
+                RESTfulModel resp = oauth2BLL.GetAuth(appID, code, state);
+                if (resp.Code == 0)
+                {
+                    string openID = resp.Data.ToString();
+                    ViewBag.AuthorizerAppID = AuthorizerAppID;
+                    ViewBag.OpenID = openID;
+
+                    // 会员卡信息
+                    MemberCardModel model = memberCardBLL.GetModel(AuthorizerAppID);
+                    if (model != null)
+                    {
+                        // 会员信息
+                        ViewBag.MemberInfo = memberInfoBLL.GetModel(openID, model.CardID);
+                    }
+                    
+                    return View(model);
+                }
+                else
+                {
+                    // 授权失败
+                    return Redirect("/error/oauth2failed");
+                }
+            }
+            // 定制500错误页
         }
 
         /// <summary>

@@ -9,8 +9,6 @@ namespace Model_9H
 {
     public class APIConfigModel
     {
-        [JsonProperty("cardID")]
-        public string CardID { get; set; }
         [JsonProperty("cardExt")]
         public string CardExt { get; set; }
     }
