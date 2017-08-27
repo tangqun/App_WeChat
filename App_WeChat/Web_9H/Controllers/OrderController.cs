@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Helper_9H;
+using Model_9H;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Web_9H.Controllers
 {
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
         /// <summary>
         /// 订单列表
@@ -30,6 +32,24 @@ namespace Web_9H.Controllers
         public ActionResult Create()
         {
             return View();
+            string openID = CookieHelper.GetCookie("uid");
+            if (!string.IsNullOrEmpty(openID))
+            {
+                // 门店列表
+
+                return View();
+            }
+            else
+            {
+                CookieHelper.SetCookie("redirect_uri", "/order/create");
+                return Redirect("/oauth2/launch");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Create(PayModel model)
+        {
+            return Content("");
         }
 
         /// <summary>

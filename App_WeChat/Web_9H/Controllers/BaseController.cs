@@ -41,7 +41,8 @@ namespace Web_9H.Controllers
             {
                 filterContext.Result = new HttpStatusCodeResult(404);
             }
-
+            
+            ViewBag.AuthorizerAppID = AuthorizerAppID;
             base.OnActionExecuting(filterContext);
         }
     }

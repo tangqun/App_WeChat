@@ -4,10 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-@section css {
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-}
 @if (Model == null)
 {
     // 未创建会员卡
@@ -20,38 +16,41 @@ else
     {
         // 未领取会员卡
         @section js {
-            <script>
-                $(function () {
-                    var cardID = '@Model.CardID';
-                    var apiConfig = {
-                        cardList: []
-                    };
+        <script>
+            $(function () {
+                var cardID = '@Model.CardID';
+                var apiConfig = {
+                    cardList: []
+                };
 
-                    $.ajax({
-                        url: '/home/getapiconfig?authorizerappid=' + '@ViewBag.AuthorizerAppID' + '&cardid=' + cardID,
-                        type: 'get',
-                        async: !1,
-                        dataType: 'json',
-                        success: function (data) {
-                            if (data) {
-                                if (data.code == 0) {
-                                    var configData = data.data;
-                                    apiConfig.cardList.push({
-                                        cardId: cardID,
-                                        cardExt: configData.cardExt
-                                    });
+                $.ajax({
+                    url: '/home/getapiconfig?authorizerappid=' + '@ViewBag.AuthorizerAppID' + '&cardid=' + cardID,
+                    type: 'get',
+                    async: !1,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data) {
+                            if (data.code == 0) {
+                                var configData = data.data;
+                                apiConfig.cardList.push({
+                                    cardId: cardID,
+                                    cardExt: configData.cardExt
+                                });
+
+                                wx.ready(function () {
                                     wx.addCard(apiConfig);
-                                } else {
-                                    alert(data.msg);
-                                }
+                                });
+                            } else {
+                                alert(data.msg);
                             }
-                        },
-                        error: function () {
-                            console && console.log('签名失败')
                         }
-                    });
-                })
-            </script>
+                    },
+                    error: function () {
+                        console && console.log('签名失败')
+                    }
+                });
+            })
+        </script>
         }
     }
     else
@@ -95,7 +94,7 @@ else
                     </div>
                     <div class="flex card-face-ft">
                         <div class="flex-item">
-                            <a class="btn btn-success" href="javascript:;">会员买单</a>
+                            <a class="btn btn-success" href="/order/create">会员买单</a>
                         </div>
                     </div>
                 </div>

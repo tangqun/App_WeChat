@@ -26,11 +26,11 @@ namespace BLL_9H
                 // 白名单要求
                 string url = "https://api.weixin.qq.com/sns/oauth2/component/access_token?appid=" + authorizerAppID + "&code=" + code + "&grant_type=authorization_code&component_appid="+ componentAppID + "&component_access_token=" + componentAccessToken;
 
-                LogHelper.Info("通过code换取access_token url", url);
+                LogHelper.Info("代公众号发起网页授权 url", url);
 
                 string responseBody = HttpHelper.Get(url);
 
-                LogHelper.Info("通过code换取access_token responseBody", responseBody);
+                LogHelper.Info("代公众号发起网页授权 responseBody", responseBody);
 
                 OAuth2GetResp resp = JsonConvert.DeserializeObject<OAuth2GetResp>(responseBody);
                 if (resp.ErrCode == 0)

@@ -1,4 +1,5 @@
 ﻿using BLL_9H;
+using Helper_9H;
 using IBLL_9H;
 using Model_9H;
 using System;
@@ -11,47 +12,35 @@ namespace Web_9H.Controllers
 {
     public class MemberCardController : BaseController
     {
-        private IOAuth2BLL oauth2BLL = new OAuth2BLL();
         private IMemberCardBLL memberCardBLL = new MemberCardBLL();
         private IMemberInfoBLL memberInfoBLL = new MemberInfoBLL();
 
         /// <summary>
         /// 会员卡主页
         /// </summary>
-        public ActionResult Index(string code, string state, string appID)
+        public ActionResult Index()
         {
-            if (string.IsNullOrEmpty(code))
+            // 重定向要授权页
+            // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxab6d7123cc1125f5&redirect_uri=
+            //   http://wxab6d7123cc1125f5.wx.smartyancheng.com/membercard/index&response_type=code&scope=snsapi_base&state=&component_appid=wx6230602b18fb87dc#wechat_redirect"
+
+            string openID = CookieHelper.GetCookie("uid");
+            if (!string.IsNullOrEmpty(openID))
             {
-                // 用户取消了授权
-                return Redirect("/error/canceloauth2");
+                MemberCardModel model = memberCardBLL.GetModel(AuthorizerAppID);
+                if (model != null)
+                {
+                    // 会员信息
+                    ViewBag.MemberInfo = memberInfoBLL.GetModel(openID, model.CardID);
+                }
+
+                return View(model);
             }
             else
             {
-                //
-                RESTfulModel resp = oauth2BLL.GetAuth(appID, code, state);
-                if (resp.Code == 0)
-                {
-                    string openID = resp.Data.ToString();
-                    ViewBag.AuthorizerAppID = AuthorizerAppID;
-                    ViewBag.OpenID = openID;
-
-                    // 会员卡信息
-                    MemberCardModel model = memberCardBLL.GetModel(AuthorizerAppID);
-                    if (model != null)
-                    {
-                        // 会员信息
-                        ViewBag.MemberInfo = memberInfoBLL.GetModel(openID, model.CardID);
-                    }
-                    
-                    return View(model);
-                }
-                else
-                {
-                    // 授权失败
-                    return Redirect("/error/oauth2failed");
-                }
+                CookieHelper.SetCookie("redirect_uri", "/membercard/index");
+                return Redirect("/oauth2/launch");
             }
-            // 定制500错误页
         }
 
         /// <summary>
@@ -62,6 +51,7 @@ namespace Web_9H.Controllers
         /// 接口激活通常需要开发者开发用户填写资料的网页。通常有两种激活流程：
         /// 1. 用户必须在填写资料后才能领卡，领卡后开发者调用激活接口为用户激活会员卡；（✓）
         /// 2. 是用户可以先领取会员卡，点击激活会员卡跳转至开发者设置的资料填写页面，填写完成后开发者调用激活接口为用户激活会员卡。
+        /// /membercard/activate?card_id=pp8Cv1ZG5EF4xANmM1MgIsbnsGUE&encrypt_code=wCjto%2FaJVWVk8BqrTfYw0q2WNkTVAD%2F1Sq1r0oh%2BLB0%3D&openid=op8Cv1bJrYMGkOciHUmkzs6cHsEc
         /// </summary>
         public ActionResult Activate(string card_id, string encrypt_code, string openid)
         {

@@ -1,6 +1,7 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "门店列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -17,52 +18,17 @@
     <div id="js_add_card">
         领取会员卡
     </div>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-    <script src="../../plugins/jquery/jquery.js"></script>
+
+    @section js {
     <script>
         $(function () {
-            var url = (location.href.split('#'))[0].toString();
-            url = encodeURIComponent(url);
-
-            var config = {
-                debug: false,
-                appId: '@ViewBag.AuthorizerAppID',
-                timestamp: '',
-                nonceStr: '',
-                signature: '',
-                jsApiList: ['openCard', 'addCard', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone', 'openAddress', 'chooseWXPay']
-            };
-
-            $.ajax({
-                url: '/home/getjsapiconfig?authorizerappid=' + '@ViewBag.AuthorizerAppID' + '&url=' + url,
-                type: 'get',
-                async: !1,
-                dataType: 'json',
-                success: function (data) {
-                    if (data) {
-                        if (data.code == 0) {
-                            var configData = data.data;
-                            config.timestamp = configData.timestamp,
-                            config.nonceStr = configData.nonceStr,
-                            config.signature = configData.signature
-                        } else {
-                            alert(data.msg);
-                        }
-                    }
-                },
-                error: function () {
-                    console && console.log('签名失败')
-                }
-            });
-
-            wx.config(config);
-
+            var cardID = 'pp8Cv1ZG5EF4xANmM1MgIsbnsGUE';
             var apiConfig = {
                 cardList: []
             };
 
             $.ajax({
-                url: '/home/getapiconfig?authorizerappid=' + '@ViewBag.AuthorizerAppID',
+                url: '/home/getapiconfig?authorizerappid=' + '@ViewBag.AuthorizerAppID' + '&cardid=' + cardID,
                 type: 'get',
                 async: !1,
                 dataType: 'json',
@@ -71,7 +37,7 @@
                         if (data.code == 0) {
                             var configData = data.data;
                             apiConfig.cardList.push({
-                                cardId: configData.cardID,
+                                cardId: cardID,
                                 cardExt: configData.cardExt
                             });
                         } else {
@@ -88,6 +54,7 @@
                 wx.addCard(apiConfig);
             });
         });
-    </script>
+    </script>    
+    }
 </body>
 </html>

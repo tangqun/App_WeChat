@@ -14,5 +14,11 @@ namespace Model_9H
         public string CardID { get; set; }
         public string Code { get; set; }
         public string MembershipNumber { get; set; }
+
+        // 会员信息
+        public string Mobile { get; set; }
+        public string RealName { get; set; }
+        public int Gender { get; set; }
+        public DateTime Birthday { get; set; }
     }
 }

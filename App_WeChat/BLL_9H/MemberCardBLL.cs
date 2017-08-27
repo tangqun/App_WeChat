@@ -18,6 +18,7 @@ namespace BLL_9H
         private IAccessTokenDAL accessTokenDAL = new AccessTokenDAL();
         private IAuthorizerInfoDAL authorizerInfoDAL = new AuthorizerInfoDAL();
         private ICardInfoDAL cardInfoDAL = new CardInfoDAL();
+        private IMemberInfoDAL memberInfoDAL = new MemberInfoDAL();
 
         // 卡面
         public MemberCardModel GetModel(string authorizerAppID)
@@ -137,7 +138,10 @@ namespace BLL_9H
                 MemberCardActivateResp resp = JsonConvert.DeserializeObject<MemberCardActivateResp>(responseBody);
                 if (resp.ErrCode == 0)
                 {
+                    DateTime dt = DateTime.Now;
                     // 保存 AuthorizerAppID、CardID、Code之间的关系
+                    memberInfoDAL.Insert(authorizerAppID, model.OpenID, model.CardID, code, model.Mobile, model.Mobile, model.RealName, model.Gender, model.Birthday, dt);
+
                     return JsonConvert.SerializeObject(new RESTfulModel() { Code = (int)CodeEnum.成功, Msg = string.Format(codeMsgDAL.GetByCode((int)CodeEnum.成功), "激活成功") });
                 }
                 else

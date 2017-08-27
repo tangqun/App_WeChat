@@ -54,6 +54,7 @@
     <Compile Include="MemberCardActivateModel.cs" />
     <Compile Include="MemberCardModel.cs" />
     <Compile Include="MemberInfoModel.cs" />
+    <Compile Include="PayModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTfulModel.cs" />
     <Compile Include="WeChat\BonusRule.cs" />

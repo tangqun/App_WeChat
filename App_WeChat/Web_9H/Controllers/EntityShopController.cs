@@ -10,34 +10,24 @@ using System.Web.Mvc;
 
 namespace Web_9H.Controllers
 {
-    public class EntityShopController : Controller
+    public class EntityShopController : BaseController
     {
         private IOAuth2BLL oauth2BLL = new OAuth2BLL();
 
         /// <summary>
         /// 门店列表
         /// </summary>
-        public ActionResult List(string code, string state, string appID)
+        public ActionResult List()
         {
-            if (string.IsNullOrEmpty(code))
+            string openID = CookieHelper.GetCookie("uid");
+            if (!string.IsNullOrEmpty(openID))
             {
-                // 用户取消了授权
-                return Redirect("/error/canceloauth2");
+                return View();
             }
             else
             {
-                RESTfulModel resp = oauth2BLL.GetAuth(appID, code, state);
-                if (resp.Code == 0)
-                {
-                    ViewBag.AuthorizerAppID = appID;
-                    ViewBag.OpenID = resp.Data;
-                    return View();
-                }
-                else
-                {
-                    // 授权失败
-                    return Redirect("/error/oauth2failed");
-                }
+                CookieHelper.SetCookie("redirect_uri", "/entityshop/list");
+                return Redirect("/oauth2/launch");
             }
         }
 

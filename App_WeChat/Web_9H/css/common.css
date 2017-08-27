@@ -173,6 +173,7 @@ body {
 }
 .input.date {
   line-height: 1;
+  -webkit-user-select: auto;
 }
 .input.date::-webkit-clear-button
 {

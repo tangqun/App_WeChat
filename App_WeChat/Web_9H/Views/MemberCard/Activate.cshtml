@@ -58,7 +58,7 @@
                             <label class="inline-block width-2x">生日</label>
                         </div>
                         <div class="flex-item list-item-bd">
-                            <input class="input date" name="birthday" type="date" value="" />
+                            <input class="input date" name="birthday" type="date" value="2017-08-26" />
                         </div>
                         <div class="list-item-ft">
 
@@ -68,6 +68,9 @@
             </div>
 
             <div class="btn-area">
+                <input type="hidden" name="cardid" value="@ViewBag.CardID" />
+                <input type="hidden" name="encryptcode" value="@ViewBag.EncryptCode" />
+                <input type="hidden" name="openid" value="@ViewBag.OpenID" />
                 <input class="btn btn-success" type="submit" value="确认提交" />
             </div>
         </form>
@@ -127,6 +130,7 @@
                             //getFunction(element.getAttribute("data-ajax-success"), ["data", "status", "xhr"]).apply(element, arguments);
                             if (data) {
                                 alert(data.msg);
+                                location.href = '/membercard/index';
                             }
                         },
                         error: function () {
