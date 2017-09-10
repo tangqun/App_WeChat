@@ -50,7 +50,7 @@
     <Compile Include="CardBLL.cs" />
     <Compile Include="MemberCardBLL.cs" />
     <Compile Include="MsgBLL.cs" />
-    <Compile Include="PayBLL.cs" />
+    <Compile Include="OrderBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

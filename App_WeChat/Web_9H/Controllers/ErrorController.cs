@@ -17,5 +17,10 @@ namespace Web_9H.Controllers
         {
             return View();
         }
+
+        public ActionResult Code500()
+        {
+            return View();
+        }
     }
 }

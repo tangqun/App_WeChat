@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model_9H
 {
-    public class PayModel
+    public class EntityShopModel
     {
-        public string OpenID { get; set; }
-        public int TotalFee { get; set; }
+        public string ID { get; set; }
+        public string Name { get; set; }
     }
 }

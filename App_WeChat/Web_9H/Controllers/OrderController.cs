@@ -1,4 +1,6 @@
-﻿using Helper_9H;
+﻿using BLL_9H;
+using Helper_9H;
+using IBLL_9H;
 using Model_9H;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,8 @@ namespace Web_9H.Controllers
 {
     public class OrderController : BaseController
     {
+        private IOrderBLL orderBLL = new OrderBLL();
+
         /// <summary>
         /// 订单列表
         /// </summary>
@@ -29,35 +33,40 @@ namespace Web_9H.Controllers
         /// <summary>
         /// 创建订单（去买单）
         /// </summary>
-        public ActionResult Create()
+        public ActionResult Confirm(string entityShopID, int totalFee)
         {
-            return View();
+            string aus = CookieHelper.GetCookie("aus");
             string openID = CookieHelper.GetCookie("uid");
-            if (!string.IsNullOrEmpty(openID))
+            if (aus == "tjh")
             {
-                // 门店列表
+                CookieHelper.ClearCookie("aus");
+                if (!string.IsNullOrEmpty(openID))
+                {
+                    // 
+                    ViewBag.EntityShop = new EntityShopModel() { ID = entityShopID, Name = "现代纯K盐城中南店" };
+                    ViewBag.TotalFee = totalFee;
 
-                return View();
+                    return View();
+                }
+                else
+                {
+                    return Redirect("/error/code500");
+                }
             }
             else
             {
-                CookieHelper.SetCookie("redirect_uri", "/order/create");
-                return Redirect("/oauth2/launch");
+                CookieHelper.SetCookie("redirect_uri", AbsoluteURL);
+                return Redirect("/oauth2/forcelaunch");
             }
         }
 
-        [HttpPost]
-        public ActionResult Create(PayModel model)
-        {
-            return Content("");
-        }
-
         /// <summary>
-        /// 订单支付
+        /// 创建订单并支付
         /// </summary>
-        public ActionResult Pay()
+        [HttpPost]
+        public ActionResult Create(OrderModel model)
         {
-            return View();
+            return Content(orderBLL.Create(AuthorizerAppID, CookieHelper.GetCookie("uid"), model, IP).ToString(), "application/json");
         }
     }
 }

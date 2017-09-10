@@ -56,5 +56,49 @@ namespace Web_9H.Controllers
             }
             // 定制500错误页
         }
+
+        public ActionResult ForceLaunch()
+        {
+            string url = "https://open.weixin.qq.com/connect/oauth2/authorize?";
+
+            url += "appid=" + AuthorizerAppID;
+
+            url += "&redirect_uri=" + Url.Encode("http://" + AuthorizerAppID + ".wx.smartyancheng.com/oauth2/forceaccept");
+
+            url += "&response_type=code&scope=snsapi_base&state=&component_appid=" + ConfigHelper.ComponentAppID;
+
+            url += "#wechat_redirect";
+
+            return Redirect(url);
+        }
+
+        public ActionResult ForceAccept(string code, string state, string appID)
+        {
+            if (string.IsNullOrEmpty(code))
+            {
+                // 用户取消了授权
+                return Redirect("/error/canceloauth2");
+            }
+            else
+            {
+                //
+                RESTfulModel resp = oauth2BLL.GetAuth(appID, code, state);
+                if (resp.Code == 0)
+                {
+                    // 设置openid
+                    CookieHelper.SetCookie("uid", resp.Data.ToString());
+                    CookieHelper.SetCookie("aus", "tjh");
+
+                    string redirect_uri = CookieHelper.GetCookie("redirect_uri");
+                    return Redirect(redirect_uri);
+                }
+                else
+                {
+                    // 授权失败
+                    return Redirect("/error/oauth2failed");
+                }
+            }
+            // 定制500错误页
+        }
     }
 }

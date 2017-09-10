@@ -10,6 +10,13 @@ namespace Helper_9H
 {
     public class UtilsHelper
     {
+        public static string MD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(str));
+            return BitConverter.ToString(bytes).Replace("-", "");
+        }
+
         public static string SHA1(string stringToHash)
         {
             SHA1 sha1 = new SHA1CryptoServiceProvider();

@@ -175,7 +175,8 @@
     <Content Include="Views\EntityShop\Details.cshtml" />
     <Content Include="Views\MemberCard\Index.cshtml" />
     <Content Include="Views\MemberCard\Activate.cshtml" />
-    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\MemberCard\GoPay.cshtml" />
+    <Content Include="Views\Order\Confirm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

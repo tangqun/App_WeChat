@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace IBLL_9H
 {
-    public interface IPayBLL
+    public interface IOrderBLL
     {
-        RESTfulModel Create(string authorizerAppID, PayModel model);
+        RESTfulModel Create(string authorizerAppID, string openID, OrderModel model, string ip);
     }
 }

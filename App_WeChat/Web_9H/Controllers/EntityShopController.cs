@@ -26,7 +26,7 @@ namespace Web_9H.Controllers
             }
             else
             {
-                CookieHelper.SetCookie("redirect_uri", "/entityshop/list");
+                CookieHelper.SetCookie("redirect_uri", AbsoluteURL);
                 return Redirect("/oauth2/launch");
             }
         }

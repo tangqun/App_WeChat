@@ -38,7 +38,23 @@ namespace Web_9H.Controllers
             }
             else
             {
-                CookieHelper.SetCookie("redirect_uri", "/membercard/index");
+                CookieHelper.SetCookie("redirect_uri", AbsoluteURL);
+                return Redirect("/oauth2/launch");
+            }
+        }
+
+        public ActionResult GoPay()
+        {
+            string openID = CookieHelper.GetCookie("uid");
+            if (!string.IsNullOrEmpty(openID))
+            {
+                // 门店列表
+
+                return View();
+            }
+            else
+            {
+                CookieHelper.SetCookie("redirect_uri", AbsoluteURL);
                 return Redirect("/oauth2/launch");
             }
         }

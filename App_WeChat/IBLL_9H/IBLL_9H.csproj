@@ -46,7 +46,7 @@
     <Compile Include="ICardBLL.cs" />
     <Compile Include="IMemberCardBLL.cs" />
     <Compile Include="IMsgBLL.cs" />
-    <Compile Include="IPayBLL.cs" />
+    <Compile Include="IOrderBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

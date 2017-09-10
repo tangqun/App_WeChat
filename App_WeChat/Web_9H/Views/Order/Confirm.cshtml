@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page">
+    <div class="page-hd">
+
+    </div>
+
+    <div class="page-bd">
+        <form id="form0" action="/membercard/activate" method="post">
+            <div>订单金额：@ViewBag.TotalFee </div>
+            <div class="btn-area">
+                <input type="hidden" name="totalFee" value="@ViewBag.TotalFee" />
+                <input class="btn btn-success" type="submit" value="确认支付" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section js {
+    <script src="../../plugins/jquery.validate/jquery.validate.js"></script>
+    <script src="../../js/additional-methods.js"></script>
+    <script src="../../plugins/jquery.validate/messages_zh.js"></script>
+    <script>
+        $(function () {
+            $("#form0").validate({
+                rules: {
+                    totalfee: {
+                        required: true
+                    }
+                },
+                submitHandler: function (form) {
+                    var option = {
+                        type: 'POST',
+                        url: '/order/create',
+                        data: $(form).serializeArray(),
+                        cache: false,
+                        beforeSend: function (xhr) {
+                            //var result;
+                            //asyncOnBeforeSend(xhr, method);
+                            //result = getFunction(element.getAttribute("data-ajax-begin"), ["xhr"]).apply(element, arguments);
+                            //if (result !== false) {
+                            //    loading.show(duration);//动画开始
+                            //}
+                            //return result;
+                        },
+                        complete: function () {
+                            //loading.hide(duration);//动画结束
+                            //getFunction(element.getAttribute("data-ajax-complete"), ["xhr", "status"]).apply(element, arguments);
+                        },
+                        success: function (data, status, xhr) {
+                            //asyncOnSuccess(element, data, xhr.getResponseHeader("Content-Type") || "text/html");
+                            //getFunction(element.getAttribute("data-ajax-success"), ["data", "status", "xhr"]).apply(element, arguments);
+                            if (data) {
+                                if (data.code == 0) {
+                                    var data = data.data;
+                                    wx.chooseWXPay({
+                                        appId: data.appID,
+                                        timestamp: data.timeStamp,
+                                        nonceStr: data.nonceStr,
+                                        package: data.package,
+                                        signType: data.signType,
+                                        paySign: data.paySign, // 支付签名
+                                        success: function (res) {
+                                            alert('支付成功');
+                                        }
+                                    });
+
+                                } else {
+                                    alert(data.msg);
+                                }
+                            }
+                        },
+                        error: function () {
+                            //getFunction(element.getAttribute("data-ajax-failure"), ["xhr", "status", "error"]).apply(element, arguments);
+                        }
+                    };
+                    $.ajax(option);
+                }
+            });
+        });
+    </script>
+}
